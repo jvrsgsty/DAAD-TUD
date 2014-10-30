@@ -1,0 +1,51 @@
+Errors:
+1) [ 1] Invalid character on Google Api call
+	[ToDo]$ Maybe escape the pipe character or commas
+
+2) [ 3] [Line 58,92,113] <table> under <span> is wrong (under the context)
+	[ToDo]$ Change <span> to <div> from right navigation <ul>
+
+3) [ 8] <input> under <a> is wrong
+4) [ 3] <button> under <a> is wrong
+5) [ 4] <label> under <a> is wrong
+	[ToDo]$ Change <a> to <div> from right navigation <ul>
+
+6) [ 5] width attribute under <col> is obsolete. Use CSS
+	-> Used CSS to specify column widths, but it is a lot of code
+7) [ 1] <th> in table body
+	-> Enclosed the <th> tags inside a <tr>
+
+
+Pendientes:
+	-> Dependencias de <a>
+	-> <link> URL a Google
+	-> Codificación UTF-8
+	-> [Vista] Botones, Checkbox, Padding
+	-> CSS-Dropdown, popup?
+	
+CAMBIO DE <a> A <div>
+	style.css
+		81, 90: agregar 'div[class*="header"]' y 'div[class*="header-trans"]:hover' a las propiedades
+		210: cambiar los selectores por '#popup div' únicamente
+		214, 218, 234, 237: cambiar a por div
+		
+	index.html
+		-> cambiar 6 etiquetas (3open, 3close) de los tres menús
+	
+	Resultado:
+		-> Buena funcionalidad, pero cambio un poco la altura de los elementos
+	
+CAMBIO DE <span> A <div>
+	Cambios en CSS para cambiar de <span> a <div>
+		214, 218, 234, 237: cambiar span por div
+	
+	Cambios en index.html para cambiar <span> a <div>
+		-> cambiar 6 etiquetas (3open, 3close) de los tres menús
+		
+	Atención: los spans ahora recibirán el formato especificado en la línea 210,
+				el cual antes no recibían.
+	[Posible Fix] hacer más específico el formato a los div de la línea 210 usando el atributo
+		  class.
+		  
+	Resultado:
+		-> Misma funcionalidad y misma vista
