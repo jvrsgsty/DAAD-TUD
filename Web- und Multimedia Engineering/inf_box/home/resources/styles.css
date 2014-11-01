@@ -167,33 +167,40 @@ div[class*="footer"]{
 
 /*Defino el tipo del boton de los popups*/
 *[class*="grn-btn"] {
-  background: #00da19;
-  background-image: -webkit-linear-gradient(top, #00da19, #00a500);
-  background-image: -moz-linear-gradient(top, #00da19, #00a500);
-  background-image: -ms-linear-gradient(top, #00da19, #00a500);
-  background-image: -o-linear-gradient(top, #00da19, #00a500);
-  background-image: linear-gradient(to bottom, #00da19, #00a500);
-  -webkit-border-radius: 3;
-  -moz-border-radius: 3;
-  border-radius: 3px;
-  color: #ffffff;
-  font-size: 14px;
-  padding: 0px 10px 0px 10px;
-  vertical-align: middle;
-  border: solid #dddddd 1px;
-  text-decoration: none;
-  height: 40px;
+	background: #00da19;
+	background-image: -webkit-linear-gradient(top, #00da19, #00a500);
+	background-image: -moz-linear-gradient(top, #00da19, #00a500);
+	background-image: -ms-linear-gradient(top, #00da19, #00a500);
+	background-image: -o-linear-gradient(top, #00da19, #00a500);
+	background-image: linear-gradient(to bottom, #00da19, #00a500);
+	-webkit-border-radius: 3;
+	-moz-border-radius: 3;
+	border-radius: 3px;
+	color: #ffffff;
+	font-size: 14px;
+	font-weight: bold;
+	padding: 0px 10px 0px 10px;
+	vertical-align: middle;
+	border: solid #dddddd 1px;
+	text-decoration: none;
+	height: 40px;
 }
 
 *[class*="grn-btn"]:hover {
-  background: #00a500;
-  background-image: -webkit-linear-gradient(top, #00a500, #00da19);
-  background-image: -moz-linear-gradient(top, #00a500, #00da19);
-  background-image: -ms-linear-gradient(top, #00a500, #00da19);
-  background-image: -o-linear-gradient(top, #00a500, #00da19);
-  background-image: linear-gradient(to bottom, #00a500, #00da19);
-  text-decoration: none;
+	background: #00a500;
+	background-image: -webkit-linear-gradient(top, #00a500, #00da19);
+	background-image: -moz-linear-gradient(top, #00a500, #00da19);
+	background-image: -ms-linear-gradient(top, #00a500, #00da19);
+	background-image: -o-linear-gradient(top, #00a500, #00da19);
+	background-image: linear-gradient(to bottom, #00a500, #00da19);
+	text-decoration: none;
 }
+
+*[class*="grn-btn"]:active {
+	background: #00a500;
+	text-decoration: none;
+}
+
 /*Es para el checkbox de remember me pero no supe como centrarlo con respecto al boton ????????*/
 *[class*="valign"]{
 	line-height: 300%;
@@ -220,16 +227,22 @@ div[class*="footer"]{
 	width: 240px;
 	margin: 0px;
 	padding: 28px;
-	padding-bottom: 17px;
+	padding-bottom: 0px;
 	color: #a1a1a1;
 	font-weight: normal;
 	background: #fcfcfc;
 	border: 1px solid #cccccc;
 	border-top-color: #2ed110;
 }
+
 #popup div:hover div table{
 	width: 100%;
 }
+
+#popup div:hover div table td{
+	padding-bottom: 15px;
+}
+
 #popup div:hover div input{
 	background-color: #fafafa;
 	-webkit-border-radius: 2px;
@@ -239,6 +252,10 @@ div[class*="footer"]{
 	width:100%;
 	height:25px;
 	line-height: 140%;
+}
+
+#popup div:hover div input[type="checkbox"]{
+	width: 13px;
 }
 
 /* ALIGN */
@@ -258,6 +275,7 @@ div[class*="footer"]{
 }
 
 *[class*="info"]{
+	font-size: 18px;
 	color: black;
 }
 /* Horizontal ruler popup */
