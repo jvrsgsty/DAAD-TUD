@@ -2,19 +2,7 @@ Errors:
 1) [ 1] Invalid character on Google Api call
 	[ToDo]$ Maybe escape the pipe character or commas
 
-2) [ 3] [Line 58,92,113] <table> under <span> is wrong (under the context)
-	[ToDo]$ Change <span> to <div> from right navigation <ul>
-
-3) [ 8] <input> under <a> is wrong
-4) [ 3] <button> under <a> is wrong
-5) [ 4] <label> under <a> is wrong
-	[ToDo]$ Change <a> to <div> from right navigation <ul>
-
-6) [ 5] width attribute under <col> is obsolete. Use CSS
-	-> Used CSS to specify column widths, but it is a lot of code
-7) [ 1] <th> in table body
-	-> Enclosed the <th> tags inside a <tr>
-
+	[FIX] Escape the pipe as %7C
 
 Pendientes:
 	-> Dependencias de <a>
@@ -34,6 +22,7 @@ CAMBIO DE <a> A <div>
 	
 	Resultado:
 		-> Buena funcionalidad, pero cambio un poco la altura de los elementos
+	[FIX] arreglar la altura en el formato del <div> de primer nivel de la navegación... Quizás deberíamos encerrar los links del header-nav-left en un div ???
 	
 CAMBIO DE <span> A <div>
 	Cambios en CSS para cambiar de <span> a <div>
@@ -46,6 +35,7 @@ CAMBIO DE <span> A <div>
 				el cual antes no recibían.
 	[Posible Fix] hacer más específico el formato a los div de la línea 210 usando el atributo
 		  class.
+	[FIX] modificación a la línea 210 agregando :first-child (i.e. el formato se le aplica a los div que sean el primer hijo dentro de algo con id=popup)
 		  
 	Resultado:
 		-> Misma funcionalidad y misma vista

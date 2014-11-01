@@ -1,142 +1,143 @@
 <!DOCTYPE html>
 <html lang="en-US">
 	<head>
-  		<meta charset="UTF-8">
+			<meta charset="UTF-8">
+			<title>inf_box</title>
+			<meta name="author" content="Javier Sagastuy und Alejandro Escalante">
+			<meta name="description" content="First course exercise HTML and CSS of the lecture Web and Multimedia Engineering">
+			<meta name="keywords" content="HTML,HTML5,CSS,CSS3,inf_box">
 		<!--
 		TODO de acuerdo a la especificación:
-		1) Tabellenelemente thead und tbody einsetzen: creo que ya está... Las tablas de los spans de los popups va a haber que quitarlas porque no es buen html segun los validadores de aqui abajo
-		2) Valides HTML und CSS  [http://validator.w3.org/]  [http://jigsaw.w3.org/css-validator/]
-		3) Botones
-		4) Remember me Checkbox
+		1) Remember me Checkbox
 		-->
 		<!-- Link al api de Google Fonts que incluye soporte para las fuentes solicitadas -->
-		<link href='http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700|Ubuntu+Condensed' rel='stylesheet' type='text/css'>
-  		<!-- Link al CSS del HTML5 reset-->
-  		<link rel="stylesheet" type="text/css" href="resources/html5reset-1.6.1.css">
-  		<!-- Link al CSS de la Font Awesome que descargué de internet -->
-  		<link rel="stylesheet" href="resources/font-awesome/css/font-awesome.min.css">
-  		<!-- Link a nuestro CSS -->
-  		<link rel="stylesheet" type="text/css" href="resources/styles.css">
-  		
-  		<title>inf_box</title>
-  		<meta name="description" content="First course exercise HTML and CSS of the lecture Web and Multimedia Engineering">
-		<meta name="author" content="Javier Sagastuy und Alejandro Escalante">
-		<meta name="keywords" content="HTML,HTML5,CSS,CSS3,inf_box">
- 	</head>
- 	<body>
- 		<header>
+		<link href='http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700%7CUbuntu+Condensed' rel='stylesheet' type='text/css'>
+		<!-- Link al CSS del HTML5 reset-->
+		<link rel="stylesheet" type="text/css" href="resources/html5reset-1.6.1.css">
+		<!-- Link al CSS de la Font Awesome que descargué de internet -->
+		<link rel="stylesheet" href="resources/font-awesome/css/font-awesome.min.css">
+		<!-- Link a nuestro CSS -->
+		<link rel="stylesheet" type="text/css" href="resources/styles.css">
+	</head>
+	<body>
+		<header>
 			<nav class="head">
 				<ul class="fltleft">
 					<li>
 						<a class="header-fltleft" href="#home">
- 							<span class="logo">
- 								<img src="img/infbox_logo.png" alt="">
- 							</span>
- 						</a>
- 					</li>
- 					<li>
- 						<a class="header-trans" href="#overview">
- 							<i class="fa fa-th-large fa-lg"></i>&nbsp;&nbsp; Overview
- 						</a>
- 					</li>
- 					<li>
- 						<a class="header-trans-selected" href="#details">
- 							<i class="fa fa-list fa-lg"></i>&nbsp;&nbsp; Details
- 						</a>
- 					</li>
- 					<li>
- 						<a class="header-trans" href="#settings">
- 							<i class="fa fa-cog fa-lg"></i>&nbsp;&nbsp; Settings
- 						</a>
- 					</li>
- 				</ul>
- 				<ul class="fltright" id="popup">
- 					<li>
-	 					<div class="header-trans">
-	 						<i class="fa fa-star fa-lg"></i>&nbsp;&nbsp; Register
-	 						<div class="txtleft">
-	 							<table>
-	 								<tbody>						
-	 								<tr><td>
-	 									First name <br />
-	 									<input type="text">
-	 								</td></tr>
-	 								<tr><td>
-	 									Last name <br />
-	 									<input type="text">
-	 								</td></tr>
-	 								<tr><td>
-	 									Birthday <br />
-	 									<input type="date">
-	 								</td></tr>
-	 								<tr><td>
-	 									<hr id="register"/>
-	 									Your username <br />
-	 									<input type="text">
-	 								</td></tr>
-	 								<tr><td>
-	 									Your password <br />
-	 									<input type="password">
-	 								</td></tr>
-	 								<tr><td>
-	 									<button class="grn-btn-fltright">Register</button>
-	 								</td></tr>	
-	 							</table>
-	 						</div>
-	 					</div>
-	 				</li>
-	 				<li>
-	 					<div class="header-trans">
-	 						<i class="fa fa-sign-in fa-lg"></i>&nbsp;&nbsp; Login
-	 						<div class="txtleft">
-	 							 <table>
-	 								<tr><td>
-	 									Username <br />
-	 									<input type="text">
-	 								</td></tr>
-	 								<tr><td>
-	 									Password <br />
-	 									<input type="password">
-	 								</td></tr>
-	 								<tr ><td>
-	 									<label><input type="checkbox">Remember me</label>
-	 									<button class="grn-btn-fltright">Login</button>
-	 								</td></tr>
-	 							</table>
-	 						</div>
-	 					</div>
- 					</li>
- 					<li>
-	 					<div class="header-trans">
-	 						<i class="fa fa-user fa-lg"></i>&nbsp;&nbsp; maxmusti
-	 						<div class="txtleft">
-	 							 <table>
-	 								<tr><td>
-	 									Your Name: <br />
-	 									<label class="info">Jane Doe</label>
-	 								</td></tr>
-	 								<tr><td>
-	 									Your Email: <br />
-	 									<label class="info">janedoe@example.org</label>
-	 								</td></tr>
-	 								<tr><td>
-	 									Your Quota (max/used):<br />
-	 									<label class="info">2.5 GB / 7.0 GB</label>
-	 								</td></tr>
-	 								<tr><td>
-	 									<button class="grn-btn-fltright">Logout</button>
-	 								</td></tr>
-	 							</table>
-	 						</div>
-	 					</div>
- 					</li>
- 				</ul>
+							<span class="logo">
+								<img src="img/infbox_logo.png" alt="">
+							</span>
+						</a>
+					</li>
+					<li>
+						<a class="header-trans-fltleft" href="#overview">
+							<i class="fa fa-th-large fa-lg"></i>&nbsp;&nbsp; Overview
+						</a>
+					</li>
+					<li>
+						<a class="header-trans-fltleft-selected" href="#details">
+							<i class="fa fa-list fa-lg"></i>&nbsp;&nbsp; Details
+						</a>
+					</li>
+					<li>
+						<a class="header-trans-fltleft" href="#settings">
+							<i class="fa fa-cog fa-lg"></i>&nbsp;&nbsp; Settings
+						</a>
+					</li>
+				</ul>
+				<ul class="fltright" id="popup">
+					<li>
+						<div class="header-trans-fltleft">
+							<i class="fa fa-star fa-lg"></i>&nbsp;&nbsp; Register
+							<div class="txtleft">
+								<table>
+									<tbody>						
+										<tr><td>
+											First name <br />
+											<input type="text">
+										</td></tr>
+										<tr><td>
+											Last name <br />
+											<input type="text">
+										</td></tr>
+										<tr><td>
+											Birthday <br />
+											<input type="date">
+										</td></tr>
+										<tr><td>
+											<hr id="register"/>
+											Your username <br />
+											<input type="text">
+										</td></tr>
+										<tr><td>
+											Your password <br />
+											<input type="password">
+										</td></tr>
+										<tr><td>
+											<button class="grn-btn-fltleft">Register</button>
+										</td></tr>	
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="header-trans-fltleft">
+							<i class="fa fa-sign-in fa-lg"></i>&nbsp;&nbsp; Login
+							<div class="txtleft">
+								<table>
+									<tbody>
+										<tr><td>
+											Username <br />
+											<input type="text">
+										</td></tr>
+										<tr><td>
+											Password <br />
+											<input type="password">
+										</td></tr>
+										<tr ><td>
+											<label><input type="checkbox">Remember me</label>
+											<button class="grn-btn-fltright">Login</button>
+										</td></tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="header-trans-fltright">
+							<i class="fa fa-user fa-lg"></i>&nbsp;&nbsp; maxmusti
+							<div class="txtleft">
+								 <table>
+								 	<tbody>
+										<tr><td>
+											Your Name: <br />
+											<label class="info">Jane Doe</label>
+										</td></tr>
+										<tr><td>
+											Your Email: <br />
+											<label class="info">janedoe@example.org</label>
+										</td></tr>
+										<tr><td>
+											Your Quota (max/used):<br />
+											<label class="info">2.5 GB / 7.0 GB</label>
+										</td></tr>
+										<tr><td>
+											<button class="grn-btn-fltright">Logout</button>
+										</td></tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</li>
+				</ul>
 			</nav>
+		
+		</header>
+		<main>
+			<h1>Your files in detail...</h1>
 			
- 		</header>
- 		<main>
- 			<h1>Your files in detail...</h1>
- 			
 			<nav class="body">
 				<div class="fltleft">
 					Number of entries per page:

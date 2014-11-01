@@ -1,3 +1,9 @@
+/* 
+inf_box stylesheet
+Last Updated: 2014-11-02
+Author: Javier Sagastuy , Alejandro Escalante
+*/
+
 body{
 	font-family: 'Ubuntu', sans-serif;
 	font-size:14px;
@@ -23,14 +29,10 @@ header{
 	background: -o-linear-gradient(#d0d0d0, #efefef); /* For Opera 11.1 to 12.0 */
 	background: -moz-linear-gradient(#d0d0d0, #efefef); /* For Firefox 3.6 to 15 */
 	background: linear-gradient(#d0d0d0, #efefef); /* Standard syntax (must be last) */
-	border-color:transparent;
-	border-style:solid; 
-	border-top-color:#7a7a7a; 
-	border-bottom-color:#cccccc; 
+	border-bottom:1px solid #cccccc; 
 	height: 80px;
-	border-width:1px;
 	/*Creo que no debe llevar borde arriba...*/
-	border-top-width: 0px;
+	border-top: 0px solid #7a7a7a;
 }
 /*Main es el contenedor principal*/
 main {
@@ -42,7 +44,7 @@ main {
 /* contenedor dentro del header, del mismo ancho que el main para colocar botones y logo*/
 nav.head{
 	width:1170px;
-	height:78px;
+	height:80px;
 	margin-right: auto;
 	margin-left: auto;
 }
@@ -51,17 +53,12 @@ nav li, nav ul{
 }
 /*los elementos que van en el header tienen todo esto en comun*/
 *[class*="header"]{
-	height:74px;
+	height:80px;
 	color:#666666;
 	text-decoration: none;
 	padding-left: 20px;
 	padding-right: 20px;
-	border-color:transparent;
-	border-right-width:1px;
-	border-left-width: 0px;
-	border-style:solid; 
-	border-right-color:#cccccc;
-	margin-left: -4px;
+	border-right:1px solid #cccccc; 
 }
 
 /* SPRITES */
@@ -159,10 +156,7 @@ footer{
 	width:1170px;
 	padding:5px; 
 	margin-top: 5px;
-	border-color:white;
-	border-top-width:1px;
-	border-style:solid; 
-	border-top-color:#2ed110; 
+	border-top:1px solid #2ed110; 
 }
 /*en el footer meti dos divs. Tienen esto en comun*/
 div[class*="footer"]{
@@ -207,11 +201,13 @@ div[class*="footer"]{
 
 /*HOVER POPUP LINKS (me base en una pagina... asi se ve un CSS bien planeado)*/
 
-#popup div {
+#popup div:first-child {
+	height:80px;
 	position: relative;
 }
 
 #popup div div {
+	position: absolute;
 	display: none;
 }
 
@@ -219,7 +215,7 @@ div[class*="footer"]{
 	display: block;
 	line-height: 140%;
 	position: absolute;
-	top: 77px;
+	top: 80px;
 	right: -1px;
 	width: 240px;
 	margin: 0px;
@@ -235,13 +231,11 @@ div[class*="footer"]{
 	width: 100%;
 }
 #popup div:hover div input{
-	border-color: #dddddd;
 	background-color: #fafafa;
 	-webkit-border-radius: 2px;
 	-moz-border-radius: 2px;
 	border-radius: 2px;
-	border-style: solid;
-	border-width: 1px;
+	border: 1px solid #dddddd;
 	width:100%;
 	height:25px;
 	line-height: 140%;
