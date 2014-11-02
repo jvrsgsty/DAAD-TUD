@@ -3,15 +3,14 @@ inf_box stylesheet
 Last Updated: 2014-11-02
 Author: Javier Sagastuy , Alejandro Escalante
 */
-
+/* Basic font settings*/
 body{
 	font-family: 'Ubuntu', sans-serif;
 	font-size:14px;
 	line-height: 145%;
 	font-style: normal;
-	padding: 0px;
-	margin: 0px;
 }
+/* Heading 1 font settings */
 h1 {
 	color:black;
 	font-family: 'Ubuntu Condensed', sans-serif;
@@ -23,7 +22,8 @@ h1 {
 p{
 	color:#666666;
 }
-/*El objeto header es todo el contenedor de la barra de hasta arriba. Solo defino el fondo*/
+/* ===== HEADER ===== */
+/* Header contains main nav. Only background, size and border definition*/
 header{
 	background: -webkit-linear-gradient(#d0d0d0, #efefef); /* For Safari 5.1 to 6.0 */
 	background: -o-linear-gradient(#d0d0d0, #efefef); /* For Opera 11.1 to 12.0 */
@@ -31,27 +31,28 @@ header{
 	background: linear-gradient(#d0d0d0, #efefef); /* Standard syntax (must be last) */
 	border-bottom:1px solid #cccccc; 
 	height: 80px;
-	/*Creo que no debe llevar borde arriba...*/
+	/* Maybe no border on top... */
 	border-top: 0px solid #7a7a7a;
 }
-/*Main es el contenedor principal*/
+/* Main container width and center settings*/
 main {
 	width:1170px;
 	padding:5px; 
 	margin-right: auto;
 	margin-left: auto;
 }
-/* contenedor dentro del header, del mismo ancho que el main para colocar botones y logo*/
+/* Header nav container size and center settings */
 nav.head{
 	width:1170px;
 	height:80px;
 	margin-right: auto;
 	margin-left: auto;
 }
+/* List elements inside a nav */
 nav li, nav ul{
 	display: inline;
 }
-/*los elementos que van en el header tienen todo esto en comun*/
+/* Class header was defined for elements inside de header nav */
 *[class*="header"]{
 	height:80px;
 	color:#666666;
@@ -61,39 +62,39 @@ nav li, nav ul{
 	border-right:1px solid #cccccc; 
 }
 
-/* SPRITES */
-/*el logo tiene class="logo". Para que solo muestre la mitad de la imagen y tenga un poco de espacio a la derecha*/
+/* Logo settings for sprite effects */
 .logo {
 	height: 80px;
 	overflow: hidden;
 	display:inline-block;
 	padding-right: 60px;
 }
-/*para que cambie la imagen cuando el puntero esta encima*/
+/* Hover effect for the logo */
 .logo img:hover{
 	margin-top: -80px;
 }
 
-/*Los hipervinculos de clase que contenga header*/
+/* Header navidation elements style */
 a[class*="header"], div[class*="header"]{
 	text-align:center;
 	line-height: 80px;/* TODO: revisar si podemos centrar esto de otra manera */
 	display: inline-block;
-	/*La transicion de colores*/
+	/* Color transition */
 	-webkit-transition: background 2s, color 1s; /* For Safari 3.1 to 6.0 */
 	transition: background 2s, color 1s;
 }
-/*Estado final de la transicion de colores, cuando el mouse esta sobre el elemento (hover)*/
+/* End state for hover transition */
 a[class*="header-trans"]:hover, div[class*="header-trans"]:hover{
 	background: #cccccc;
 	color:#1a1a1a;
 }
+/* Selected elements */
 a[class*="selected"]{
 	background: #666666;
 	color:#f0f0f0;
 }
 
-/* ===== BODY===== */
+/* ===== BODY ===== */
 
 nav.body{
 	width:100%;
@@ -118,7 +119,7 @@ nav.body a.active{
 nav.body a.active:hover{
 	text-decoration: none;
 }
-/*la tabla de contenido principal tiene esta id*/
+/* Main content table id=filelist */
 #filelist {
 	width:100%;
 	color:black;
@@ -126,7 +127,6 @@ nav.body a.active:hover{
 	margin-left: auto;
 	border-collapse: collapse;
 }
-/*lo use para el header de la tabla principal*/
 #filelist th {
 	font-weight: bold;
 	text-align: left;
@@ -150,22 +150,88 @@ nav.body a.active:hover{
 #filelist img {
 	margin-right: 10px;
 }
+
+/* ===== FOOTER ===== */
+/* footer size and center settings */
 footer{
 	margin-right: auto;
 	margin-left: auto;
 	width:1170px;
 	padding:5px; 
-	margin-top: 5px;
+	margin-top: 50px;
 	border-top:1px solid #2ed110; 
 }
-/*en el footer meti dos divs. Tienen esto en comun*/
 div[class*="footer"]{
 	color:#666666;
 	font-size:12px;
 	display:inline;
+	margin-bottom: 50px;
 }
 
-/*Defino el tipo del boton de los popups*/
+/* ===== CSS DROPDOWN POPUPS ===== */
+
+#popup div:first-child {
+	height:80px;
+	position: relative;
+}
+#popup div div {
+	position: absolute;
+	display: none;
+}
+#popup div:hover div {
+	display: block;
+	line-height: 140%;
+	position: absolute;
+	top: 80px;
+	right: -1px;
+	width: 240px;
+	margin: 0px;
+	padding: 28px;
+	padding-bottom: 0px;
+	color: #a1a1a1;
+	font-weight: normal;
+	background: #fcfcfc;
+	border: 1px solid #cccccc;
+	border-top-color: #2ed110;
+	-webkit-border-bottom-left-radius: 3;
+	-moz-border-bottom-left-radius: 3;
+	-webkit-border-bottom-right-radius: 3;
+	-moz-border-bottom-right-radius: 3;
+	border-bottom-left-radius: 3px;
+	border-bottom-right-radius: 3px;
+	box-shadow: 0px 1px 3px #cccccc;
+}
+#popup div:hover div table{
+	width: 100%;
+}
+#popup div:hover div table td{
+	padding-bottom: 15px;
+}
+#popup div:hover div input{
+	background-color: #fafafa;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	border: 1px solid #dddddd;
+	width:100%;
+	height:25px;
+	line-height: 140%;
+}
+#popup div:hover div input[type="checkbox"]{
+	width: 13px;
+}
+
+/* Horizontal ruler popup */
+hr#register {
+	display: block;
+	height: 1px;
+	border: 0;
+	border-top: 1px dashed #cccccc;
+	margin: 1em 0;
+	padding: 0;
+}
+
+/* Popup button */
 *[class*="grn-btn"] {
 	background: #00da19;
 	background-image: -webkit-linear-gradient(top, #00da19, #00a500);
@@ -185,7 +251,6 @@ div[class*="footer"]{
 	text-decoration: none;
 	height: 40px;
 }
-
 *[class*="grn-btn"]:hover {
 	background: #00a500;
 	background-image: -webkit-linear-gradient(top, #00a500, #00da19);
@@ -195,78 +260,18 @@ div[class*="footer"]{
 	background-image: linear-gradient(to bottom, #00a500, #00da19);
 	text-decoration: none;
 }
-
 *[class*="grn-btn"]:active {
 	background: #00a500;
 	text-decoration: none;
 }
 
-/*Es para el checkbox de remember me pero no supe como centrarlo con respecto al boton ????????*/
-*[class*="valign"]{
-	line-height: 300%;
-}
-
-/*HOVER POPUP LINKS (me base en una pagina... asi se ve un CSS bien planeado)*/
-
-#popup div:first-child {
-	height:80px;
-	position: relative;
-}
-
-#popup div div {
-	position: absolute;
-	display: none;
-}
-
-#popup div:hover div {
-	display: block;
-	line-height: 140%;
-	position: absolute;
-	top: 80px;
-	right: -1px;
-	width: 240px;
-	margin: 0px;
-	padding: 28px;
-	padding-bottom: 0px;
-	color: #a1a1a1;
-	font-weight: normal;
-	background: #fcfcfc;
-	border: 1px solid #cccccc;
-	border-top-color: #2ed110;
-}
-
-#popup div:hover div table{
-	width: 100%;
-}
-
-#popup div:hover div table td{
-	padding-bottom: 15px;
-}
-
-#popup div:hover div input{
-	background-color: #fafafa;
-	-webkit-border-radius: 2px;
-	-moz-border-radius: 2px;
-	border-radius: 2px;
-	border: 1px solid #dddddd;
-	width:100%;
-	height:25px;
-	line-height: 140%;
-}
-
-#popup div:hover div input[type="checkbox"]{
-	width: 13px;
-}
-
-/* ALIGN */
-/*si la clase contiene fltleft, que se vaya a la izq*/
+/* ===== ALIGN ===== */
 *[class*="fltleft"]{
 	float: left;
 }
 *[class*="fltright"]{
 	float:right;
 }
-/*si la clase contiene txtleft, que el texto se alinee a la izq*/
 *[class*="txtleft"]{
 	text-align: left;
 }
@@ -278,41 +283,20 @@ div[class*="footer"]{
 	font-size: 18px;
 	color: black;
 }
-/* Horizontal ruler popup */
-hr#register {
-	display: block;
-	height: 1px;
-	border: 0;
-	border-top: 1px dashed #cccccc;
-	margin: 1em 0;
-	padding: 0;
-}
 
-/*Column widths for the filelist table. Width attribute on html marked as obsolete
+/*Column widths for the filelist table. Width attribute on html <col> marked as obsolete
 table#filelist col:nth-child(1){
 	width: 60%;
 }
-
 table#filelist col:nth-child(2){
 	width: 7.5%;
 }
-
 table#filelist col:nth-child(3){
 	width: 7.5%;
 }
-
 table#filelist col:nth-child(4){
 	width: 12.5%;
 }
-
 table#filelist col:nth-child(5){
 	width: 12.5%;
 }*/
-
-/* TEMP */
-/*
-table, th, td {
-	border: 1px solid black;
-}
-/**/
-
