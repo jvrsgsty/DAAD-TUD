@@ -1,13 +1,13 @@
 inf_box
 First course exercise HTML and CSS
-Web and Multimedia Engineering
+Web- und Multimedia Engineering
 Team # 1
 Javier Sagastuy		(s9650555)
 Alejandro Escalante	(s6210277)
 
 The /home folder contains all files related to the website. 
 
-Inisde you will find:
+Inside you will find:
 
 index.html	: the main webpage html file
 img/		: all images needed for the website (thumbnails and logo)
