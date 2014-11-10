@@ -1,6 +1,6 @@
 /* 
 inf_box stylesheet
-Last Updated: 2014-11-02
+Last Updated: 2014-11-10
 Author: Javier Sagastuy , Alejandro Escalante
 */
 /* Basic font settings*/
@@ -20,7 +20,10 @@ h1 {
 	margin: 20px 0px;
 }
 p{
-	color:#666666;
+	color:#999999;
+	display: inline-block;
+	float: left;
+	margin-right: 5px;
 }
 /* ===== HEADER ===== */
 /* Header contains main nav. Only background, size and border definition*/
@@ -50,15 +53,15 @@ nav.head{
 }
 /* List elements inside a nav */
 nav li, nav ul{
-	display: inline;
+	position: relative;
+	display: inline-block;
+	float: left;
 }
 /* Class header was defined for elements inside de header nav */
 *[class*="header"]{
 	height:80px;
 	color:#666666;
 	text-decoration: none;
-	padding-left: 20px;
-	padding-right: 20px;
 	border-right:1px solid #cccccc; 
 }
 
@@ -78,7 +81,9 @@ nav li, nav ul{
 a[class*="header"], div[class*="header"]{
 	text-align:center;
 	line-height: 80px;/* TODO: revisar si podemos centrar esto de otra manera */
-	display: inline-block;
+	display: block;
+	padding-left: 20px;
+	padding-right: 20px;
 	/* Color transition */
 	-webkit-transition: background 2s, color 1s; /* For Safari 3.1 to 6.0 */
 	transition: background 2s, color 1s;
@@ -170,22 +175,21 @@ div[class*="footer"]{
 
 /* ===== CSS DROPDOWN POPUPS ===== */
 
-#popup div:first-child {
+#popup a:first-child {
 	height:80px;
 	position: relative;
 }
-#popup div div {
+#popup a ~ div {
 	position: absolute;
 	display: none;
-}
-#popup div:hover div {
-	display: block;
-	line-height: 140%;
 	position: absolute;
-	top: 80px;
+	z-index: 5;
+	top: 79px;
 	right: -1px;
+	line-height: 140%;
 	width: 240px;
 	margin: 0px;
+	margin-top: 1px;
 	padding: 28px;
 	padding-bottom: 0px;
 	color: #a1a1a1;
@@ -201,13 +205,16 @@ div[class*="footer"]{
 	border-bottom-right-radius: 3px;
 	box-shadow: 0px 1px 3px #cccccc;
 }
-#popup div:hover div table{
+#popup a:hover ~ div {
+	display: block;
+}
+#popup a:hover ~ div table{
 	width: 100%;
 }
-#popup div:hover div table td{
+#popup a:hover ~ div table td{
 	padding-bottom: 15px;
 }
-#popup div:hover div input{
+#popup a:hover ~ div input{
 	background-color: #fafafa;
 	-webkit-border-radius: 2px;
 	-moz-border-radius: 2px;
@@ -217,7 +224,7 @@ div[class*="footer"]{
 	height:25px;
 	line-height: 140%;
 }
-#popup div:hover div input[type="checkbox"]{
+#popup a:hover ~ div input[type="checkbox"]{
 	width: 13px;
 }
 

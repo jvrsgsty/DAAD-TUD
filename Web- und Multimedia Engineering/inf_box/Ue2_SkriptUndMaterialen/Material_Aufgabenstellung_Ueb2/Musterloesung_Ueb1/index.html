@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>WME Course Exercise HTML and CSS &bull; Sample Solution</title>
+	<meta name="description" content="Sample solution for the first course exercise HTML and CSS of the lecture Web and Multimedia Engineering">
+	<meta name="author" content="Ricardo Langner">
+	<meta name="keywords" content="Web and Multimedia Engineering, Course, Exercise">
+
+	<link href="html5reset-1.6.1.css" type="text/css" rel="stylesheet">
+	<link href="http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700,300italic,400italic,500italic,700italic" rel="stylesheet" type="text/css">
+	<link href="http://fonts.googleapis.com/css?family=Ubuntu+Condensed" rel="stylesheet" type="text/css">
+	<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
+	<link href="style.css" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+
+<header>
+	<nav class="container" role="navigation">
+		<a class="logo" href="/">INF_box</a>
+		<ul>
+			<li>
+				<a href=""><i class="icon-th-large"></i> Overview</a>
+			</li>
+			<li class="active">
+				<a href=""><i class="icon-list"></i> Details</a>
+			</li>
+			<li>
+				<a href=""><i class="icon-cog"></i> Settings</a>
+			</li>
+		</ul>
+		<ul class="right">
+			<li class="dropdown">
+				<a class="dropdown" href=""><i class="icon-star"></i> Register</a>
+				<div class="dropdown-block">
+					<form name="regform" id="regform" action="/" method="post">
+						<p>
+							<label for="user_login">First name</label>
+							<input type="text" name="fn" id="reg_first_name">
+						</p>
+						<p>
+							<label for="user_login">Last name</label>
+							<input type="text" name="ln" id="reg_last_name">
+						</p>
+						<p>
+							<label for="user_login">Birthday</label>
+							<input type="date" name="birth" id="reg_birthday">
+						</p>
+						<p class="sep">
+							<label for="user_login">Your username</label>
+							<input type="text" name="log" id="reg_user_login">
+						</p>
+						<p>
+							<label for="user_pass">Your password</label>
+							<input type="password" name="pwd" id="reg_user_pass">
+						</p>
+						<p class="submit">
+							<input type="submit" name="submit" id="reg_submit" value="Register">
+						</p>
+					</form>
+				</div>
+			</li>
+			<li class="dropdown">
+				<a class="dropdown" href=""><i class="icon-signin"></i> Login</a>
+				<div class="dropdown-block">
+					<form name="loginform" id="loginform" action="/" method="post">
+						<p>
+							<label for="user_login">Username</label>
+							<input type="text" name="log" id="user_login">
+						</p>
+						<p>
+							<label for="user_pass">Password</label>
+							<input type="password" name="pwd" id="user_pass">
+						</p>
+						<p class="forgetmenot">
+							<label for="rememberme">
+								<input name="rememberme" type="checkbox" id="rememberme" value="forever">
+								Remember me
+							</label>
+						</p>
+						<p class="submit">
+							<input type="submit" name="submit" id="submit-login" value="Login">
+						</p>
+					</form>
+				</div>
+			</li>
+			<li class="dropdown">
+				<a class="dropdown" href=""><i class="icon-user"></i> maxmusti</a>
+				<div id="account" class="dropdown-block">
+					<p>
+						<span class="key">Your Name:</span>
+						<span class="value">Jane Doe</span>
+					</p>
+					<p>
+						<span class="key">Your Email:</span>
+						<span class="value">jane.doe@example.org</span>
+					</p>
+					<p>
+						<span class="key">Your Quota (used / max):</span>
+						<span class="value">2.5 GB / 7.0 GB</span>
+					</p>
+					<form name="logoutform" id="logoutform" action="/" method="post">
+						<p class="submit">
+							<input type="submit" name="submit" id="submit-logout" value="Logout">
+						</p>
+					</form>
+				</div>
+			</li>
+		</ul>
+	</nav>
+</header>
+
+<div class="container">
+	<section>
+		<h1>Your files in detail ...</h1>
+		
+		<div class="table-ctrl">
+			<div>
+				<p>Number of entries per page:</p>
+				<ul>
+					<li><a class="active" href="">10</a></li>
+					<li><a href="">20</a></li>
+					<li><a href="">50</a></li>
+					<li><a href="">100</a></li>
+				</ul>
+			</div>
+			<div>
+				<p>Show/Hide:</p>
+				<ul>
+					<li><a class="active" href="">Size</a></li>
+					<li><a class="active" href="">Type</a></li>
+					<li><a class="active" href="">Creation</a></li>
+				</ul>
+			</div>
+			<div class="right">
+				<p>Page:</p>
+				<ul>
+					<li><a class="active" href="">1</a></li>
+					<li><a href="">2</a></li>
+					<li><a href="">3</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<table>
+			<thead>
+				<tr>
+					<th>Filename</th>
+					<th>Size</th>
+					<th>Type</th>
+					<th>Creation</th>
+					<th class="actions">Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>06 - BLUEMARC - BLUEMARC-BLUEMARC_-_AGA_LIFE_2012.mp3</td>
+					<td>6.3 MB</td>
+					<td>Audio</td>
+					<td>10.03.2013 23:14</td>
+					<td class="actions">
+						<a href=""><i class="icon-eye-open"></i></a>
+						<a href=""><i class="icon-share-alt"></i></a>
+						&nbsp;|&nbsp;&nbsp;
+						<a href=""><i class="icon-pencil"></i></a>
+						<a href=""><i class="icon-lock"></i></a>
+						<a href=""><i class="icon-trash"></i></a>
+					</td>
+				</tr>
+				<tr>
+					<td>08 - BLUEMARC - EWSKO  _ BLUEMARC-ROMANTIC WIND.mp3</td>
+					<td>5.8 MB</td>
+					<td>Audio</td>
+					<td>10.03.2013 23:14</td>
+					<td class="actions">
+						<a href=""><i class="icon-eye-open"></i></a>
+						<a href=""><i class="icon-share-alt"></i></a>
+						&nbsp;|&nbsp;&nbsp;
+						<a href=""><i class="icon-pencil"></i></a>
+						<a href=""><i class="icon-lock"></i></a>
+						<a href=""><i class="icon-trash"></i></a>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<img src="amsterdam_prev.jpg" alt="amsterdam.jpg">
+						amsterdam.jpg
+					</td>
+					<td>240 KB</td>
+					<td>Bild</td>
+					<td>10.09.2013 10:57</td>
+					<td class="actions">
+						<a href=""><i class="icon-eye-open"></i></a>
+						<a href=""><i class="icon-share-alt"></i></a>
+						&nbsp;|&nbsp;&nbsp;
+						<a href=""><i class="icon-pencil"></i></a>
+						<a href=""><i class="icon-lock"></i></a>
+						<a href=""><i class="icon-trash"></i></a>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<img src="beeren_prev.jpg" alt="beeren.jpg">
+						beeren.jpg
+					</td>
+					<td>556 KB</td>
+					<td>Bild</td>
+					<td>10.09.2013 10:57</td>
+					<td class="actions">
+						<a href=""><i class="icon-eye-open"></i></a>
+						<a href=""><i class="icon-share-alt"></i></a>
+						&nbsp;|&nbsp;&nbsp;
+						<a href=""><i class="icon-pencil"></i></a>
+						<a href=""><i class="icon-lock"></i></a>
+						<a href=""><i class="icon-trash"></i></a>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<img src="drachen_prev.jpg" alt="drachen.jpg">
+						drachen.jpg
+					</td>
+					<td>311 KB</td>
+					<td>Bild</td>
+					<td>10.09.2013 10:57</td>
+					<td class="actions">
+						<a href=""><i class="icon-eye-open"></i></a>
+						<a href=""><i class="icon-share-alt"></i></a>
+						&nbsp;|&nbsp;&nbsp;
+						<a href=""><i class="icon-pencil"></i></a>
+						<a href=""><i class="icon-lock"></i></a>
+						<a href=""><i class="icon-trash"></i></a>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<img src="leben_prev.jpg" alt="leben.jpg">
+						leben.jpg
+					</td>
+					<td>426 KB</td>
+					<td>Bild</td>
+					<td>10.09.2013 10:57</td>
+					<td class="actions">
+						<a href=""><i class="icon-eye-open"></i></a>
+						<a href=""><i class="icon-share-alt"></i></a>
+						&nbsp;|&nbsp;&nbsp;
+						<a href=""><i class="icon-pencil"></i></a>
+						<a href=""><i class="icon-lock"></i></a>
+						<a href=""><i class="icon-trash"></i></a>
+					</td>
+				</tr>
+				<tr>
+					<td>lizenz_musik.txt</td>
+					<td>123 Byte</td>
+					<td>Text</td>
+					<td>10.09.2013 17:44</td>
+					<td class="actions">
+						<a href=""><i class="icon-eye-open"></i></a>
+						<a href=""><i class="icon-share-alt"></i></a>
+						&nbsp;|&nbsp;&nbsp;
+						<a href=""><i class="icon-pencil"></i></a>
+						<a href=""><i class="icon-lock"></i></a>
+						<a href=""><i class="icon-trash"></i></a>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<img src="mainframe_prev.jpg" alt="mainframe.jpg">
+						mainframe.jpg
+					</td>
+					<td>260 KB</td>
+					<td>Bild</td>
+					<td>10.09.2013 10:57</td>
+					<td class="actions">
+						<a href=""><i class="icon-eye-open"></i></a>
+						<a href=""><i class="icon-share-alt"></i></a>
+						&nbsp;|&nbsp;&nbsp;
+						<a href=""><i class="icon-pencil"></i></a>
+						<a href=""><i class="icon-lock"></i></a>
+						<a href=""><i class="icon-trash"></i></a>
+					</td>
+				</tr>
+				
+				<tr>
+					<td>mimetype.txt</td>
+					<td>2 KB</td>
+					<td>Text</td>
+					<td>03.09.2013 12:01</td>
+					<td class="actions">
+						<a href=""><i class="icon-eye-open"></i></a>
+						<a href=""><i class="icon-share-alt"></i></a>
+						&nbsp;|&nbsp;&nbsp;
+						<a href=""><i class="icon-pencil"></i></a>
+						<a href=""><i class="icon-lock"></i></a>
+						<a href=""><i class="icon-trash"></i></a>
+					</td>
+				</tr>
+				<tr>
+					<td>rest_definition.txt</td>
+					<td>387 Byte</td>
+					<td>Text</td>
+					<td>08.09.2013 07:52</td>
+					<td class="actions">
+						<a href=""><i class="icon-eye-open"></i></a>
+						<a href=""><i class="icon-share-alt"></i></a>
+						&nbsp;|&nbsp;&nbsp;
+						<a href=""><i class="icon-pencil"></i></a>
+						<a href=""><i class="icon-lock"></i></a>
+						<a href=""><i class="icon-trash"></i></a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<div class="table-ctrl">
+			<div>
+				<p>Number of entries per page:</p>
+				<ul>
+					<li><a class="active" href="">10</a></li>
+					<li><a href="">20</a></li>
+					<li><a href="">50</a></li>
+					<li><a href="">100</a></li>
+				</ul>
+			</div>
+			<div>
+				<p>Show/Hide:</p>
+				<ul>
+					<li><a class="active" href="">Size</a></li>
+					<li><a class="active" href="">Type</a></li>
+					<li><a class="active" href="">Creation</a></li>
+				</ul>
+			</div>
+			<div class="right">
+				<p>Page:</p>
+				<ul>
+					<li><a class="active" href="">1</a></li>
+					<li><a href="">2</a></li>
+					<li><a href="">3</a></li>
+				</ul>
+			</div>
+		</div>
+
+	</section>
+</div>
+
+<footer>
+	<div class="container">
+		<div>
+			<p>
+				Copyright &copy; 2013 inf_box<br>
+				First course exercise <strong>HTML and CSS</strong> of the lecture Web and Multimedia Engineering.
+			</p>
+		</div>
+		<div class="right">
+			<p>
+				This solution has been created by:<br>
+				Jane Doe (s1234567) and John Doe (s7654321)
+			</p>
+		</div>
+	</div>
+</footer>
+
+</body>
+</html>
