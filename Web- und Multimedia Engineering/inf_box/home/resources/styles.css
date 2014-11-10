@@ -208,13 +208,16 @@ div[class*="footer"]{
 #popup a:hover ~ div {
 	display: block;
 }
-#popup a:hover ~ div table{
+#popup a ~ div:hover {
+	display: inline;
+}
+#popup a ~ div table{
 	width: 100%;
 }
-#popup a:hover ~ div table td{
+#popup a ~ div table td{
 	padding-bottom: 15px;
 }
-#popup a:hover ~ div input{
+#popup a ~ div input{
 	background-color: #fafafa;
 	-webkit-border-radius: 2px;
 	-moz-border-radius: 2px;
@@ -224,7 +227,7 @@ div[class*="footer"]{
 	height:25px;
 	line-height: 140%;
 }
-#popup a:hover ~ div input[type="checkbox"]{
+#popup a ~ div input[type="checkbox"]{
 	width: 13px;
 }
 
