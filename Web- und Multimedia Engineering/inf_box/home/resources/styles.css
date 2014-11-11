@@ -1,30 +1,26 @@
 /* 
 inf_box stylesheet
-Last Updated: 2014-11-10
+Last Updated: 2014-11-11
 Author: Javier Sagastuy , Alejandro Escalante
 */
 /* Basic font settings*/
-body{
-	font-family: 'Ubuntu', sans-serif;
-	font-size:14px;
-	line-height: 145%;
-	font-style: normal;
+body {
+	font: normal normal 400 14px/145% "Ubuntu", Tahoma, Geneva, "Trebuchet MS", Helvetica, sans-serif;
+	padding: 0 0 5em 0;
 }
-/* Heading 1 font settings */
+
 h1 {
-	color:black;
-	font-family: 'Ubuntu Condensed', sans-serif;
-	font-size: 3em;
-	line-height: 140%;
-	font-style: normal;
-	margin: 20px 0px;
+	font: normal normal 300 3em/140% "Ubuntu Condensed", "Ubuntu", Tahoma, Geneva, "Trebuchet MS", Helvetica, sans-serif;
+	margin: 1em 0 .5em;
 }
+
 p{
 	color:#999999;
 	display: inline-block;
 	float: left;
 	margin-right: 5px;
 }
+
 /* ===== HEADER ===== */
 /* Header contains main nav. Only background, size and border definition*/
 header{
@@ -37,6 +33,7 @@ header{
 	/* Maybe no border on top... */
 	border-top: 0px solid #7a7a7a;
 }
+
 /* Main container width and center settings*/
 main {
 	width:1170px;
@@ -44,25 +41,38 @@ main {
 	margin-right: auto;
 	margin-left: auto;
 }
+
 /* Header nav container size and center settings */
-nav.head{
+header > nav {
 	width:1170px;
 	height:80px;
 	margin-right: auto;
 	margin-left: auto;
 }
+
 /* List elements inside a nav */
-nav li, nav ul{
+header > nav > ul > li {
+	border-right: 1px solid #ccc;
+	display: block;
+	float: left;
+}
+
+header > nav > ul > li:first-child {
+	border-left: 1px solid #ccc;
+}
+
+li, ul{
 	position: relative;
 	display: inline-block;
 	float: left;
+	list-style: none none inside;
 }
+
 /* Class header was defined for elements inside de header nav */
 *[class*="header"]{
 	height:80px;
 	color:#666666;
 	text-decoration: none;
-	border-right:1px solid #cccccc; 
 }
 
 /* Logo settings for sprite effects */
@@ -72,6 +82,7 @@ nav li, nav ul{
 	display:inline-block;
 	padding-right: 60px;
 }
+
 /* Hover effect for the logo */
 .logo img:hover{
 	margin-top: -80px;
@@ -88,42 +99,51 @@ a[class*="header"], div[class*="header"]{
 	-webkit-transition: background 2s, color 1s; /* For Safari 3.1 to 6.0 */
 	transition: background 2s, color 1s;
 }
+
 /* End state for hover transition */
-a[class*="header-trans"]:hover, div[class*="header-trans"]:hover{
+li[class*="transition"]:hover > a{
 	background: #cccccc;
 	color:#1a1a1a;
 }
+
 /* Selected elements */
-a[class*="selected"]{
+li[class*="selected"] > a,
+li[class*="selected"]:hover > a
+{
 	background: #666666;
 	color:#f0f0f0;
 }
 
 /* ===== BODY ===== */
-
-nav.body{
+div.table-ctrl{
 	width:100%;
 	height:auto;
 	color:#999999;
 	padding: 5px;
 	padding-bottom: 30px;
 }
-nav.body div{
+
+div.table-ctrl div{
 	margin-right: 25px;
 }
-nav.body a{
+
+div.table-ctrl a{
 	color: #2ed110;
 }
-nav.body a:hover{
+
+div.table-ctrl a:hover{
 	color: #108500;
 	text-decoration: none;
 }
-nav.body a.active{
+
+div.table-ctrl a.active{
 	color: #cccccc;
 }
-nav.body a.active:hover{
+
+div.table-ctrl a.active:hover{
 	text-decoration: none;
 }
+
 /* Main content table id=filelist */
 #filelist {
 	width:100%;
@@ -132,26 +152,32 @@ nav.body a.active:hover{
 	margin-left: auto;
 	border-collapse: collapse;
 }
+
 #filelist th {
 	font-weight: bold;
 	text-align: left;
 	border-bottom:3px solid #cccccc; 
 }
+
 #filelist td {
 	padding: 5px;
 	vertical-align: top;
 	padding-bottom: 10px;
 	border-bottom: 1px solid #eeeeee;
 }
+
 #filelist td.actions{
 	color:#999999;
 }
+
 #filelist a.icon{
 	color:#2ed110;
 }
+
 #filelist a.icon:hover{
 	color:#108500;
 }
+
 #filelist img {
 	margin-right: 10px;
 }
@@ -166,6 +192,7 @@ footer{
 	margin-top: 50px;
 	border-top:1px solid #2ed110; 
 }
+
 div[class*="footer"]{
 	color:#666666;
 	font-size:12px;
@@ -174,22 +201,21 @@ div[class*="footer"]{
 }
 
 /* ===== CSS DROPDOWN POPUPS ===== */
-
 #popup a:first-child {
 	height:80px;
 	position: relative;
 }
+
 #popup a ~ div {
 	position: absolute;
 	display: none;
 	position: absolute;
 	z-index: 5;
-	top: 79px;
+	top: 80px;
 	right: -1px;
 	line-height: 140%;
 	width: 240px;
 	margin: 0px;
-	margin-top: 1px;
 	padding: 28px;
 	padding-bottom: 0px;
 	color: #a1a1a1;
@@ -205,18 +231,23 @@ div[class*="footer"]{
 	border-bottom-right-radius: 3px;
 	box-shadow: 0px 1px 3px #cccccc;
 }
+
 #popup a:hover ~ div {
 	display: block;
 }
+
 #popup a ~ div:hover {
 	display: inline;
 }
+
 #popup a ~ div table{
 	width: 100%;
 }
+
 #popup a ~ div table td{
 	padding-bottom: 15px;
 }
+
 #popup a ~ div input{
 	background-color: #fafafa;
 	-webkit-border-radius: 2px;
@@ -227,6 +258,7 @@ div[class*="footer"]{
 	height:25px;
 	line-height: 140%;
 }
+
 #popup a ~ div input[type="checkbox"]{
 	width: 13px;
 }
@@ -261,6 +293,7 @@ hr#register {
 	text-decoration: none;
 	height: 40px;
 }
+
 *[class*="grn-btn"]:hover {
 	background: #00a500;
 	background-image: -webkit-linear-gradient(top, #00a500, #00da19);
@@ -270,6 +303,7 @@ hr#register {
 	background-image: linear-gradient(to bottom, #00a500, #00da19);
 	text-decoration: none;
 }
+
 *[class*="grn-btn"]:active {
 	background: #00a500;
 	text-decoration: none;
@@ -279,12 +313,15 @@ hr#register {
 *[class*="fltleft"]{
 	float: left;
 }
+
 *[class*="fltright"]{
 	float:right;
 }
+
 *[class*="txtleft"]{
 	text-align: left;
 }
+
 *[class*="txtright"]{
 	text-align: right;
 }
@@ -298,15 +335,21 @@ hr#register {
 table#filelist col:nth-child(1){
 	width: 60%;
 }
+
 table#filelist col:nth-child(2){
 	width: 7.5%;
 }
+
 table#filelist col:nth-child(3){
 	width: 7.5%;
 }
+
 table#filelist col:nth-child(4){
 	width: 12.5%;
 }
+
 table#filelist col:nth-child(5){
 	width: 12.5%;
-}*/
+}
+
+*/

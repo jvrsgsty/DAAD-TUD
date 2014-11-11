@@ -17,34 +17,32 @@
 	</head>
 	<body>
 		<header>
-			<nav class="head">
+			<nav>
+				<a class="header-fltleft" href="#home">
+					<span class="logo">
+						<img src="img/infbox_logo.png" alt="">
+					</span>
+				</a>
 				<ul class="fltleft">
-					<li>
-						<a class="header-fltleft" href="#home">
-							<span class="logo">
-								<img src="img/infbox_logo.png" alt="">
-							</span>
-						</a>
-					</li>
-					<li>
-						<a class="header-trans-fltleft" href="#overview">
+					<li class="transition">
+						<a class="header-fltleft" href="#overview">
 							<i class="fa fa-th-large fa-lg"></i>&nbsp;&nbsp; Overview
 						</a>
 					</li>
-					<li>
-						<a class="header-trans-fltleft-selected" href="#details">
+					<li class="transition-selected">
+						<a class="header-fltleft" href="#details">
 							<i class="fa fa-list fa-lg"></i>&nbsp;&nbsp; Details
 						</a>
 					</li>
-					<li>
-						<a class="header-trans-fltleft" href="#settings">
+					<li class="transition">
+						<a class="header-fltleft" href="#settings">
 							<i class="fa fa-cog fa-lg"></i>&nbsp;&nbsp; Settings
 						</a>
 					</li>
 				</ul>
 				<ul class="fltright" id="popup">
-					<li>
-							<a class="header-trans" href="#register">
+					<li class="transition">
+							<a class="header" href="#register">
 								<i class="fa fa-star fa-lg"></i>&nbsp;&nbsp; Register
 							</a>
 							<div class="txtleft">
@@ -80,8 +78,8 @@
 								</form>
 							</div>
 					</li>
-					<li>
-						<a class="header-trans" href="#login">
+					<li class="transition">
+						<a class="header" href="#login">
 							<i class="fa fa-sign-in fa-lg"></i>&nbsp;&nbsp; Login
 						</a>
 							<div class="txtleft">
@@ -105,8 +103,8 @@
 								</form>
 							</div>
 					</li>
-					<li>
-						<a class="header-trans" href="#user">
+					<li class="transition">
+						<a class="header" href="#user">
 							<i class="fa fa-user fa-lg"></i>&nbsp;&nbsp; <label>maxmusti</label>
 						</a>
 							<div class="txtleft">
@@ -138,7 +136,7 @@
 		</header>
 		<main>
 			<h1>Your files in detail...</h1>
-			<nav class="body">
+			<div class="table-ctrl">
 				<div class="fltleft">
 					<p>Number of entries per page:</p>
 					<ul>
@@ -184,7 +182,7 @@
 						</li>
 					</ul>
 				</div>
-			</nav>
+			</div>
 			<table id="filelist">
 				<thead>
 					<tr>
@@ -328,7 +326,7 @@
 					</tr>
 				</tbody>
 			</table>
-			<nav class="body">
+			<div class="table-ctrl">
 				<div class="fltleft">
 					<p>Number of entries per page:</p>
 					<ul>
@@ -374,7 +372,7 @@
 						</li>
 					</ul>
 				</div>
-			</nav>
+			</div>
 		</main>
 		<footer>
 			<div class="footer-fltleft-txtleft">

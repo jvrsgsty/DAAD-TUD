@@ -1,6 +1,0 @@
-log.txt
-
-10.11.2014
-
-+ Correcciones de semática de acuerdo a los comentarios dados durante la presentación y a la Musterlösung dada por ellos
-* TODO: Cuando editamos el popup perdemos el sombreado del <a> de al lado
