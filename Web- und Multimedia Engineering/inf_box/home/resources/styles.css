@@ -30,8 +30,6 @@ header{
 	background: linear-gradient(#d0d0d0, #efefef); /* Standard syntax (must be last) */
 	border-bottom:1px solid #cccccc; 
 	height: 80px;
-	/* Maybe no border on top... */
-	border-top: 0px solid #7a7a7a;
 }
 
 /* Main container width and center settings*/
@@ -55,15 +53,15 @@ header > nav > ul > li {
 	border-right: 1px solid #ccc;
 	display: block;
 	float: left;
+	position: relative;
 }
 
 header > nav > ul > li:first-child {
 	border-left: 1px solid #ccc;
 }
 
-li, ul{
-	position: relative;
-	display: inline-block;
+ul, li{
+	display: block;
 	float: left;
 	list-style: none none inside;
 }
@@ -329,6 +327,42 @@ hr#register {
 *[class*="info"]{
 	font-size: 18px;
 	color: black;
+}
+
+/* ===== STICKY-NAV ===== */
+div.sticky-nav{
+	width: 100%;
+	background-color: #1a1a1a;
+	color: #ffffff;
+	height: 60px;
+	position: fixed;
+	top: -60px;
+	z-index: 999;
+	-webkit-transition: top 0.5s ease;
+	transition: top 0.5s ease;
+}
+
+div.is-sticky{
+	top: 0px;
+}
+
+div.sticky-nav > nav {
+	width:1170px;
+	height:60px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+div.sticky-nav  nav  a{
+	height:60px;
+	line-height: 60px;
+	color: #ffffff;
+	text-decoration: none;
+	padding: 0 20px;
+}
+
+div.sticky-nav  nav  li:hover{
+	background-color: #333333;
 }
 
 /*Column widths for the filelist table. Width attribute on html <col> marked as obsolete
