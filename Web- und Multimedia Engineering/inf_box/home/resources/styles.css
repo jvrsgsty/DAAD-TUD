@@ -1,6 +1,6 @@
 /* 
 inf_box stylesheet
-Last Updated: 2014-11-11
+Last Updated: 18.11.2014
 Author: Javier Sagastuy , Alejandro Escalante
 */
 /* Basic font settings*/
@@ -127,6 +127,7 @@ div.table-ctrl div{
 
 div.table-ctrl a{
 	color: #2ed110;
+	text-decoration: underline;
 }
 
 div.table-ctrl a:hover{
@@ -136,6 +137,7 @@ div.table-ctrl a:hover{
 
 div.table-ctrl a.active{
 	color: #cccccc;
+	text-decoration: underline;
 }
 
 div.table-ctrl a.active:hover{
