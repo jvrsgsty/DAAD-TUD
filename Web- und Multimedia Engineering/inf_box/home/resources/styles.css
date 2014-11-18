@@ -180,6 +180,8 @@ div.table-ctrl a.active:hover{
 
 #filelist img {
 	margin-right: 10px;
+	width: 42px;
+	height: 42px;
 }
 
 /* ===== FOOTER ===== */

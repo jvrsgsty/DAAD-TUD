@@ -122,6 +122,11 @@
 										</tbody>
 									</table>
 								</form>
+								<!-- temp -->
+								<button id="btnPrueba" onclick="lookForUser($('#username-login').val());">
+									LOAD USER
+								</button>
+								<!-- temp -->
 							</div>
 					</li>
 					<li class="transition">
@@ -214,7 +219,7 @@
 						<th class="actions">Actions</th>
 					</tr>
 				</thead>
-				<tbody>
+				<tbody id="files">
 					<tr>
 						<td class="filename">06 - BLUEMARC - BLUEMARC-BLUEMARC_-_AGA_LIFE_2012.mp3</td>
 						<td class="size">6.3 MB</td>
@@ -405,6 +410,7 @@
 			</div>
 		</footer>
 		<script src="resources/jquery-1.11.1.min.js"></script>
+		<script src="resources/inf_box-util.js"></script>
 		<script src="resources/inf_box-Script.js"></script>
 	</body>
 </html>

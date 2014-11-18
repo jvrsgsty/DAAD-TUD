@@ -1,0 +1,26 @@
+Uebung 2
+
+1) Sticky Nav
+[x] HTML design
+[x] CSS design and slide transition
+[x] JS functionality: add/remove class
+
+2) Columns show / hide
+[x] HTML classes
+[x]	CSS for <a> elements
+[x] JS functionality: hide/show
+
+3) Sort
+[ ] By filename
+[ ] By size
+
+4) Validate forms: Register and Login
+[ ] All fields are obligatory
+[ ] Login: Benutzername != admin / Passwort != 12345
+[ ] Register: Fehlermeldung wenn Datum > 11.11.1995
+
+5) Dynamic content
+[x] Table list display
+[x] User info display
+[x] Change user through temp button: enter username in login input field, then click on load
+[ ] Lightbox preview
