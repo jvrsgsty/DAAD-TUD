@@ -1,9 +1,9 @@
 Uebung 2
 
 0) BUGS & Others
-[ ] When the mouse hovers over a cached Autofill element of a textbox, the popup menu hides
+[ ] When the mouse hovers over a cached Autofill element of a textbox, the popup menu hides. Have not seen this behaviour
 [ ] Update README.txt
-[ ] There seems to be something weird with the carriage return of this file
+[x] There seems to be something weird with the carriage return of this file: They were set up to Windows. Changed to UNIX
 
 1) Sticky Nav
 [x] HTML design
@@ -27,7 +27,9 @@ Uebung 2
 5) Dynamic content
 [x] Table list display
 [x] User info display
-	-> Should function loadUser call loadData?
+	-> Should function loadUser call loadData? Yes, better idea. Done
 	-> Function lookForUser could be optimized (while)
 [x] Change user through temp button: enter username in login input field, then click on load
-[ ] Lightbox preview
+[x] Modify how many items are shown per page
+[x] Page navigation
+[ ] Lightbox preview: plugins?

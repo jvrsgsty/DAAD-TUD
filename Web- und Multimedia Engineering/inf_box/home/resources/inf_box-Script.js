@@ -1,18 +1,21 @@
 /* 
 inf_box script
-Last Updated: 18.11.2014
+Last Updated: 19.11.2014
 Author: Javier Sagastuy , Alejandro Escalante
 */
 // loose code
 var user_id = 1;
 var items = [];
+var items_per_page = 10;
+var current_page = 1;
+var total_items = -1;
+var total_pages = -1;
 
 loadUser(user_id);
-loadData(user_id);
 
 /* There is a short hand for the document ready function
    it would be used like this:
-
+		Javier: yes, but I like that document.ready is more explicit
 $(function(){
 	//Insert code	
 });
@@ -67,7 +70,8 @@ function loadData(id){
 			$.each(data, function(index, item){
 				items.push(item);
 			})
-			displayTable();
+			total_items = items.length;
+			adjustPagesControl();
 		});
 	});
 }
@@ -77,7 +81,8 @@ function loadData(id){
 function displayTable(){
 	// items has the file list
 	var filelist = '';
-	for(var i = 0; i<items.length; i++){
+	var i = (current_page-1)*items_per_page;
+	while(i<total_items && i<items_per_page*current_page){
 		filelist += '<tr>\n';
 		filelist += '<td class="filename">';
 		if(items[i].metadata.thumbnail_available){
@@ -96,6 +101,7 @@ function displayTable(){
 		filelist += '<a class="icon" href=""><i class="fa fa-lock fa-lg"></i></a>&nbsp;\n';
 		filelist += '<a class="icon" href=""><i class="fa fa-trash-o fa-lg"></i></a>\n';
 		filelist += '</tr>\n';
+		i++;
 	}
 	document.getElementById("files").innerHTML = filelist;
 }
@@ -116,6 +122,7 @@ function loadUser(id){
 				$('#email_address').html(email_address);
 				$('#username').html(username);
 				$('#quota').html(formatSize(quota_used) + ' / ' + formatSize(quota));
+				loadData(id);
 			},
 			error: function(result) { 
 				alert("loadUser(): content failed to load: " + id);
@@ -131,13 +138,69 @@ function lookForUser(username){
 		$.each(data, function(index, user){
 			users.push(user);
 		})
-		for(var i = 0; i<users.length; i++){
-			if(users[i].username == username){
-				user_id = users[i].id;
-			}
+		var i = 0;
+		while(i<users.length && users[i].username != username){
+			i++;
 		}
+		if(i!=users.length)
+			user_id = users[i].id;
 		loadUser(user_id);
-		loadData(user_id);
 	});
 }
 
+// 5.5) Adjust Pages table control elements and variables
+function displayPagesControl(pages){
+	var innerHTML = "";
+	var i = 1;
+	while(i<=pages){
+		innerHTML += "<li>\n";
+		if(i == 1)
+			innerHTML += "<a class='pageNav active' href='#' id='page";
+		else
+			innerHTML += "<a class='pageNav' href='#' id='page";
+		if(i!=pages)
+			innerHTML += i + "'>" + i + "</a>&nbsp;|&nbsp;\n";
+		else
+			innerHTML += i + "'>" + i + "</a>\n";
+		innerHTML += "</li>\n";
+		i++;
+	}
+	$("#pages").html(innerHTML);
+	// add the click listener
+	$(".pageNav").click(function(){
+		$(".pageNav").removeClass("active");
+		$(this).addClass("active");
+		// set current page
+		setCurrentPage($(this).html());
+	});
+}
+
+function setItemsPerPage(numItems){
+	items_per_page = numItems;
+	adjustPagesControl();
+}
+
+function setCurrentPage(page){
+	current_page = page;
+	displayTable();
+}
+
+function adjustPagesControl(){
+	total_pages = Math.ceil(total_items / items_per_page);
+	displayPagesControl(total_pages);
+	displayTable();
+}
+
+// listeners on the click for the page control anchors
+// click listener for the pageNav added on displayPagesControl
+// otherwise the listeners are not added, because the pageControl
+// is constructed later
+$(document).ready(function(){
+	$(".itemsPerPage").click(function(){
+		$(".itemsPerPage").removeClass("active");
+		$(this).addClass("active");
+		current_page = 1;
+		setItemsPerPage($(this).html());
+	});
+});
+// 5.5) END
