@@ -3,7 +3,7 @@ inf_box script
 Last Updated: 19.11.2014
 Author: Javier Sagastuy , Alejandro Escalante
 */
-// loose code
+// Global variables
 var user_id = 1;
 var items = [];
 var items_per_page = 10;
@@ -13,9 +13,9 @@ var total_pages = -1;
 
 loadUser(user_id);
 
-/* There is a short hand for the document ready function
-   it would be used like this:
-		Javier: yes, but I like that document.ready is more explicit
+/* Note:
+	There is a short hand for the document ready function.
+	It would be used like this:
 $(function(){
 	//Insert code	
 });
@@ -66,7 +66,6 @@ function loadData(id){
 		items = [];
 		$.getJSON( 'http://wme.lehre.imld.de:8080/wme14-15/api/users/' + id + '/items', function(data) {
 			// This is a special jQuery function for arrays or objects
-			// This is where the 10,20,50,100 functionality should be placed (using index)
 			$.each(data, function(index, item){
 				items.push(item);
 			})
@@ -82,12 +81,13 @@ function displayTable(){
 	// items has the file list
 	var filelist = '';
 	var i = (current_page-1)*items_per_page;
-	while(i<total_items && i<items_per_page*current_page){
-		filelist += '<tr>\n';
+	var max_index = items_per_page*current_page;
+	while(i<total_items && i<max_index){
+		var item_id = items[i].id;
+		filelist += '<tr class="entry-' + item_id + '">\n';
 		filelist += '<td class="filename">';
 		if(items[i].metadata.thumbnail_available){
 			// insert the thumbnail
-			var item_id = items[i].id;
 			filelist += '<img src="' + 'http://wme.lehre.imld.de:8080/wme14-15/api/items/' + item_id + '/thumbnail' + '" alt="">';
 		}
 		filelist += items[i].filename + '</td>\n';
@@ -142,9 +142,11 @@ function lookForUser(username){
 		while(i<users.length && users[i].username != username){
 			i++;
 		}
-		if(i!=users.length)
+		// Only load new user if it was found, even though this is only temporary
+		if(i<users.length){
 			user_id = users[i].id;
-		loadUser(user_id);
+			loadUser(user_id);
+		}
 	});
 }
 
@@ -155,9 +157,9 @@ function displayPagesControl(pages){
 	while(i<=pages){
 		innerHTML += "<li>\n";
 		if(i == 1)
-			innerHTML += "<a class='pageNav active' href='#' id='page";
+			innerHTML += "<a class='pageNav active' href='#' value='";
 		else
-			innerHTML += "<a class='pageNav' href='#' id='page";
+			innerHTML += "<a class='pageNav' href='#' value='";
 		if(i!=pages)
 			innerHTML += i + "'>" + i + "</a>&nbsp;|&nbsp;\n";
 		else
@@ -165,21 +167,31 @@ function displayPagesControl(pages){
 		innerHTML += "</li>\n";
 		i++;
 	}
-	$("#pages").html(innerHTML);
-	// add the click listener
+	/* Note:
+		The .html(string) function from jQuery replaces the innerHTML
+		from all matched elements. However, when the search is done
+		by id, the search returns only the first element with such id.
+	*/
+	$("ul.pages").html(innerHTML);
+	// Add the click listener
 	$(".pageNav").click(function(){
-		$(".pageNav").removeClass("active");
-		$(this).addClass("active");
-		// set current page
-		setCurrentPage($(this).html());
+		// Avoids redisplaying the table if the current active option was clicked
+		if(!$(this).hasClass("active")){
+			$(".pageNav").removeClass("active");
+			$('.pageNav[value="' + $(this).attr("value") + '"]').addClass("active");
+			// set current page
+			setCurrentPage($(this).attr("value"));
+		}
 	});
 }
 
+// This function is only called from the click function
 function setItemsPerPage(numItems){
 	items_per_page = numItems;
 	adjustPagesControl();
 }
 
+// This function is only called from the click function
 function setCurrentPage(page){
 	current_page = page;
 	displayTable();
@@ -197,10 +209,16 @@ function adjustPagesControl(){
 // is constructed later
 $(document).ready(function(){
 	$(".itemsPerPage").click(function(){
-		$(".itemsPerPage").removeClass("active");
-		$(this).addClass("active");
-		current_page = 1;
-		setItemsPerPage($(this).html());
+		// Avoids redisplaying the table if the current active option was clicked
+		if(!$(this).hasClass("active")){
+			$(".itemsPerPage").removeClass("active");
+			// Select the elements with the same value for pages and activate them
+			$('.itemsPerPage[value="' + $(this).attr("value") + '"]').addClass("active");
+			// This assignment is consistent with the displayPagesControl function
+			// current_page is set to 1 and the active class is given to page 1
+			current_page = 1;
+			setItemsPerPage($(this).attr("value"));
+		}
 	});
 });
 // 5.5) END

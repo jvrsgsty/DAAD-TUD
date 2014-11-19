@@ -2,8 +2,10 @@ Uebung 2
 
 0) BUGS & Others
 [ ] When the mouse hovers over a cached Autofill element of a textbox, the popup menu hides. Have not seen this behaviour
+[ ] The Items/Page and Page# features interfere with the Hide/Size feature
 [ ] Update README.txt
-[x] There seems to be something weird with the carriage return of this file: They were set up to Windows. Changed to UNIX
+[ ] Should we use the document ready function for utils?
+[ ] Should we remove all href="#"? Alej: The site does not look so dynamic with these
 
 1) Sticky Nav
 [x] HTML design
@@ -26,10 +28,11 @@ Uebung 2
 
 5) Dynamic content
 [x] Table list display
+[x] Use the id of the item as a CSS class on each row
 [x] User info display
 	-> Should function loadUser call loadData? Yes, better idea. Done
 	-> Function lookForUser could be optimized (while)
 [x] Change user through temp button: enter username in login input field, then click on load
-[x] Modify how many items are shown per page
-[x] Page navigation
-[ ] Lightbox preview: plugins?
+[x] Modify how many items are shown per page (with shadow)
+[x] Page navigation (with shadow)
+[ ] Lightbox preview: plugins? Alej: idk. The pdf says lightbox-ähnliches
