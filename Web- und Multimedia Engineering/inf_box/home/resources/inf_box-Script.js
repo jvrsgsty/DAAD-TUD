@@ -10,8 +10,17 @@ var items = [];
 loadUser(user_id);
 loadData(user_id);
 
+/* There is a short hand for the document ready function
+   it would be used like this:
+
+$(function(){
+	//Insert code	
+});
+*/
+
 // 1) Sticky Nav
 $(document).ready(function(){
+	// Note: jQuery can be abbreviated with a '$' sign
 	jQuery(document).scroll(function() {
 		if(jQuery(this).scrollTop() > 80) {
 			jQuery('.sticky-nav').addClass("is-sticky");
@@ -25,21 +34,21 @@ $(document).ready(function(){
 // 2) Hide columns
 $(document).ready(function(){
 	$(".showSize").click(function(){
-		$(this).toggleClass("active");
+		$(".showSize").toggleClass("active");
 		if($(this).hasClass("active"))
 			$(".size").show();
 		else
 			$(".size").hide();
 	});
 	$(".showType").click(function(){
-		$(this).toggleClass("active");
+		$(".showType").toggleClass("active");
 		if($(this).hasClass("active"))
 			$(".mimetype").show();
 		else
 			$(".mimetype").hide();
 	});
 	$(".showCreation").click(function(){
-				$(this).toggleClass("active");
+		$(".showCreation").toggleClass("active");
 		if($(this).hasClass("active"))
 			$(".creation_date").show();
 		else
@@ -52,7 +61,9 @@ $(document).ready(function(){
 function loadData(id){
 	$(document).ready(function(){
 		items = [];
-		$.getJSON( 'http://wme.lehre.imld.de:8080/wme14-15/api/users/' + id + '/items', '', function(data) {
+		$.getJSON( 'http://wme.lehre.imld.de:8080/wme14-15/api/users/' + id + '/items', function(data) {
+			// This is a special jQuery function for arrays or objects
+			// This is where the 10,20,50,100 functionality should be placed (using index)
 			$.each(data, function(index, item){
 				items.push(item);
 			})
@@ -93,7 +104,6 @@ function displayTable(){
 function loadUser(id){
 	$.ajax({
 			url: 'http://wme.lehre.imld.de:8080/wme14-15/api/users/' + id,
-			data: '',
 			dataType: 'xml',
 			success: function(result) {
 				var display_name = $(result).find('display_name').text();
@@ -101,13 +111,14 @@ function loadUser(id){
 				var quota = $(result).find('quota').text();
 				var quota_used = $(result).find('quota_used').text();
 				var username = $(result).find('username').text();
+				// Would it be faster to use 'document.getElementById' instead of jQuery?
 				$('#display_name').html(display_name);
 				$('#email_address').html(email_address);
 				$('#username').html(username);
 				$('#quota').html(formatSize(quota_used) + ' / ' + formatSize(quota));
 			},
 			error: function(result) { 
-					alert("loadUser(): content failed to load: " + id);
+				alert("loadUser(): content failed to load: " + id);
 			}
 		});
 }
@@ -116,7 +127,7 @@ function loadUser(id){
 // linked to click event on button with id="btnPrueba"
 function lookForUser(username){
 	var users =[];
-	$.getJSON( 'http://wme.lehre.imld.de:8080/wme14-15/api/users/', '', function(data) {
+	$.getJSON( 'http://wme.lehre.imld.de:8080/wme14-15/api/users/', function(data) {
 		$.each(data, function(index, user){
 			users.push(user);
 		})
@@ -129,3 +140,4 @@ function lookForUser(username){
 		loadData(user_id);
 	});
 }
+

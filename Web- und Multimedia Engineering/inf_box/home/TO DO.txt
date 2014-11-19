@@ -1,5 +1,10 @@
 Uebung 2
 
+0) BUGS & Others
+[ ] When the mouse hovers over a cached Autofill element of a textbox, the popup menu hides
+[ ] Update README.txt
+[ ] There seems to be something weird with the carriage return of this file
+
 1) Sticky Nav
 [x] HTML design
 [x] CSS design and slide transition
@@ -7,7 +12,7 @@ Uebung 2
 
 2) Columns show / hide
 [x] HTML classes
-[x]	CSS for <a> elements
+[x] CSS for <a> elements
 [x] JS functionality: hide/show
 
 3) Sort
@@ -22,5 +27,7 @@ Uebung 2
 5) Dynamic content
 [x] Table list display
 [x] User info display
+	-> Should function loadUser call loadData?
+	-> Function lookForUser could be optimized (while)
 [x] Change user through temp button: enter username in login input field, then click on load
 [ ] Lightbox preview

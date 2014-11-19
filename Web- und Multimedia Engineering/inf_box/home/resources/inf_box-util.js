@@ -28,13 +28,13 @@ function formatSize(bytes){
 			result = " TB";
 			break;
 	}
-	return bytes.toPrecision(3) + result;
+	return bytes.toFixed(2) + result;
 }
 
 function formatDate(date){
 	var myDate = new Date(date);
 	var day = myDate.getDate();
-	var month = myDate.getMonth();
+	var month = myDate.getMonth() + 1;
 	var year = myDate.getFullYear();
 	var hour = myDate.getHours();
 	var minute = myDate.getMinutes();
@@ -45,16 +45,13 @@ function formatType(type){
 	var result;
 	if(type.indexOf("txt") != -1)
 		result = "Text";
+	else if(type.indexOf("image") != -1)
+		result = "Bild";
+	else if(type.indexOf("video") != -1)
+		result = "Video";
+	else if(type.indexOf("audio") != -1)
+		result = "Audio";
 	else
-		if(type.indexOf("image") != -1)
-			result = "Bild";
-		else
-			if(type.indexOf("video") != -1)
-				result = "Video";
-			else
-				if(type.indexOf("audio") != -1)
-					result = "Audio";
-				else
-					result = "Unknown";
+		result = "Unknown";
 	return result;
 }

@@ -357,7 +357,7 @@ div.sticky-nav > nav {
 	margin-left: auto;
 }
 
-div.sticky-nav  nav  a{
+div.sticky-nav nav a{
 	height:60px;
 	line-height: 60px;
 	color: #ffffff;
@@ -365,7 +365,7 @@ div.sticky-nav  nav  a{
 	padding: 0 20px;
 }
 
-div.sticky-nav  nav  li:hover{
+div.sticky-nav nav li:hover{
 	background-color: #333333;
 }
 
