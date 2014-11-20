@@ -23,7 +23,10 @@ $(function(){
 
 // 1) Sticky Nav
 $(document).ready(function(){
-	// Note: jQuery can be abbreviated with a '$' sign
+	/* Note:
+		jQuery can be abbreviated with a '$' sign
+		.scroll adds an event listener to the document
+	*/
 	jQuery(document).scroll(function() {
 		if(jQuery(this).scrollTop() > 80) {
 			jQuery('.sticky-nav').addClass("is-sticky");
@@ -59,17 +62,68 @@ $(document).ready(function(){
 	});
 });
 
+// In this case, only the hidden parts need to be refreshed
+// Because everytime the files are loaded, everything is shown
+function refreshHidden(){
+	/*Note:
+		the .hasClass function checks if ANY of the selected
+		elements has the specified class
+	*/
+	if(!$(".showSize").hasClass("active")){
+		$(".size").hide();
+	}
+	if(!$(".showType").hasClass("active")){
+		$(".mimetype").hide();
+	}
+	if(!$(".showCreation").hasClass("active")){
+		$(".creation_date").hide();
+	}
+}
+
+// 3) Sorting the files
+var sortedAscendent;
+var sortedByFilename;
+
+function sortByFilename(){
+	if(sortedByFilename){
+		sortedAscendent = !sortedAscendent;
+	}else{
+		sortedByFilename = true;
+		sortedAscendent = true;
+	}
+	items = mergeSort(items, sortedAscendent, 'filename');
+	selectPage(1);
+}
+
+function sortBySize(){
+	if(sortedByFilename){
+		sortedByFilename = false;
+		sortedAscendent = true;
+	}else{
+		sortedAscendent = !sortedAscendent;
+	}
+	items = mergeSort(items, sortedAscendent, 'size');
+	selectPage(1);
+}
+
 // 5.1) Dynamic content: call web api
 // Loads the items from a user into the items list
 function loadData(id){
 	$(document).ready(function(){
 		items = [];
 		$.getJSON( 'http://wme.lehre.imld.de:8080/wme14-15/api/users/' + id + '/items', function(data) {
-			// This is a special jQuery function for arrays or objects
+			/* Note:
+				This is a special jQuery function for arrays or objects
+				See http://learn.jquery.com/using-jquery-core/dollar-object-vs-function/
+			*/
 			$.each(data, function(index, item){
 				items.push(item);
 			})
 			total_items = items.length;
+			// Default sorting
+			items = mergeSort(items, /*asc*/true, /*property*/'filename');
+			sortedAscendent = true;
+			sortedByFilename = true;
 			adjustPagesControl();
 		});
 	});
@@ -104,6 +158,7 @@ function displayTable(){
 		i++;
 	}
 	document.getElementById("files").innerHTML = filelist;
+	refreshHidden();
 }
 
 // 5.3) Dynamic content: load and display user info
@@ -174,15 +229,21 @@ function displayPagesControl(pages){
 	*/
 	$("ul.pages").html(innerHTML);
 	// Add the click listener
-	$(".pageNav").click(function(){
-		// Avoids redisplaying the table if the current active option was clicked
-		if(!$(this).hasClass("active")){
-			$(".pageNav").removeClass("active");
-			$('.pageNav[value="' + $(this).attr("value") + '"]').addClass("active");
-			// set current page
-			setCurrentPage($(this).attr("value"));
-		}
-	});
+	$(".pageNav").click(pageClick);
+}
+
+function pageClick(){
+	// Avoids redisplaying the table if the current active option was clicked
+	if(!$(this).hasClass("active")){
+		selectPage($(this).attr("value"));
+	}
+}
+
+function selectPage(page){
+	$(".pageNav").removeClass("active");
+	$('.pageNav[value="' + page + '"]').addClass("active");
+	// set current page
+	setCurrentPage(page);
 }
 
 // This function is only called from the click function
