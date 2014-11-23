@@ -1,9 +1,4 @@
 DAAD-TUD
 ========
 
-Mi primer repositorio de git!!!
-
-Cambio en git
-
-
-Cambio en mac
+Código de trabajos en equipo durante nuestro semestre de intercambio en la TU Dresden, Alemania
