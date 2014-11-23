@@ -16,13 +16,14 @@ Uebung 2
 3) Sort
 [x] By filename
 [x] By size
-[ ] Make the headers of the table hyperlinks.
+[x] Make the headers of the table hyperlinks.
 	Right now, it works with the <th> element
+	J: Done. Inserted an anchor inside the <th>, styled it with CSS, added the onclick event AND changed the callback so it returns false and avoids page reload. 
 
 4) Validate forms: Register and Login
-[ ] All fields are obligatory
-[ ] Login: Benutzername != admin / Passwort != 12345
-[ ] Register: Fehlermeldung wenn Datum > 11.11.1995
+[x] All fields are obligatory
+[x] Login: Benutzername != admin / Passwort != 12345
+[x] Register: Fehlermeldung wenn Datum > 11.11.1995
 
 5) Dynamic content
 [x] Table list display
@@ -46,12 +47,17 @@ a) BUGS
 		2) Click login button
 		3) Start typing the user again until suggested
 		4) Hover mouse over suggestion
+	J: This behaviour is still not present in my browser... Komisch...
 [x] The Items/Page and Page# features interfere with the Hide/Size feature
 	-> The hidden columns are now refreshed everytime the table is reloaded
 
 b) Not important
+	J: love the "Not important" title
 [x] A: Should we use the document ready function for utils?
 	A: I just understood the ready function (better). The answer is no
 [ ] A: I think we could make a more correct use of the document ready function
-[ ] A: Should we remove all href="#"? The site does not look so dynamic with these
+		J: perhaps... I started using it without fully understanding it...
+[x] A: Should we remove all href="#"? The site does not look so dynamic with these
+		J: Yes, just removed them and replaced with an empty href="" attr
+		J: IMPORTANT: I needed to add a return false; to the callback functions on the click events for page navigation to prevent the anchors from reloading the page, as well as changing the onclick attr on the table header, to make it return the false value to the callback function. 
 [ ] A: Maybe change all " " on inf_box-Script.js to ' ' or the other way around

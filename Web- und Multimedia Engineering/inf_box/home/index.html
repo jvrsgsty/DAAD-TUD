@@ -67,29 +67,40 @@
 								<i class="fa fa-star fa-lg"></i>&nbsp;&nbsp; Register
 							</a>
 							<div class="txtleft">
-								<form>
+								<form onsubmit="return validateRegister();">
+									<!--
+									TODO: check onformchange event, instead of 
+									using individual onchange events for the form
+									elements
+									-->
+									<label class="notvalid" hidden="true" id="registerNotValid">Please check all marked fields</label>
 									<table>
 										<tbody>						
 											<tr><td>
-												First name <br />
-												<input type="text" id="firstname-register">
+												First name 
+												<label class="notvalid" hidden="true" id="firstnameNotValid">*</label><br />
+												<input type="text" id="firstname_register" onchange="validateFirstName();">
 											</td></tr>
 											<tr><td>
-												Last name <br />
-												<input type="text" id="lastname-register">
+												Last name 
+												<label class="notvalid"  hidden="true" id="lastnameNotValid">*</label><br />
+												<input type="text" id="lastname_register" onchange="validateLastName();">
 											</td></tr>
 											<tr><td>
-												Birthday <br />
-												<input type="date" id="bday-register">
+												Birthday 
+												<label class="notvalid"  hidden="true" id="bdayNotValid">*</label><br />
+												<input type="date" id="bday_register" onchange="validateBirthday();" value="1995-11-12">
 											</td></tr>
 											<tr><td>
 												<hr id="register"/>
-												Your username <br />
-												<input type="text" id="username-register">
+												Your username 
+												<label class="notvalid"  hidden="true" id="usernameNotValid">*</label><br />
+												<input type="text" id="username_register" onchange="validateUsername();">
 											</td></tr>
 											<tr><td>
-												Your password <br />
-												<input type="password" id="password-register">
+												Your password 
+												<label class="notvalid"  hidden="true" id="passwordNotValid">*</label><br />
+												<input type="password" id="password_register" onchange="validatePassword();">
 											</td></tr>
 											<tr><td>
 												<button class="grn-btn-fltright">Register</button>
@@ -104,16 +115,19 @@
 							<i class="fa fa-sign-in fa-lg"></i>&nbsp;&nbsp; Login
 						</a>
 							<div class="txtleft">
-								<form>
+								<form onsubmit="return validateLogin();">
+									<label class="notvalid" hidden="true" id="loginNotValid">Username or password not valid! Please try again</label>
 									<table>
 										<tbody>
 											<tr><td>
-												Username <br />
-												<input type="text" id="username-login">
+												Username
+												<label class="notvalid" hidden="true" id="usernameLoginNotValid">*</label><br />
+												<input type="text" id="username_login" onchange="validateUsernameLogin();">
 											</td></tr>
 											<tr><td>
-												Password <br />
-												<input type="password" id="password-login">
+												Password
+												<label class="notvalid" hidden="true" id="passwordLoginNotValid">*</label><br />
+												<input type="password" id="password_login" onchange="validatePasswordLogin();">
 											</td></tr>
 											<tr ><td>
 												<input type="checkbox" id="rememberme">&nbsp;Remember me
@@ -123,7 +137,7 @@
 									</table>
 								</form>
 								<!-- temp -->
-								<button id="btnPrueba" onclick="lookForUser($('#username-login').val());">
+								<button id="btnPrueba" onclick="lookForUser($('#username_login').val());">
 									LOAD USER
 								</button>
 								<!-- temp -->
@@ -167,16 +181,16 @@
 					<p>Number of entries per page:</p>
 					<ul>
 						<li>
-							<a class="itemsPerPage active" href="#" value="10">10</a>&nbsp;|&nbsp;
+							<a class="itemsPerPage active" href="" value="10">10</a>&nbsp;|&nbsp;
 						</li>
 						<li>
-							<a class="itemsPerPage" href="#" value="20">20</a>&nbsp;|&nbsp;
+							<a class="itemsPerPage" href="" value="20">20</a>&nbsp;|&nbsp;
 						</li>
 						<li>
-							<a class="itemsPerPage" href="#" value="50">50</a>&nbsp;|&nbsp;
+							<a class="itemsPerPage" href="" value="50">50</a>&nbsp;|&nbsp;
 						</li>
 						<li>
-							<a class="itemsPerPage" href="#" value="100">100</a>
+							<a class="itemsPerPage" href="" value="100">100</a>
 						</li>
 					</ul>
 				</div>
@@ -184,13 +198,13 @@
 					<p>Show/Hide:</p>
 					<ul>
 						<li>
-							<a class="active showSize" href="#">Size</a>&nbsp;|&nbsp;
+							<a class="active showSize" href="">Size</a>&nbsp;|&nbsp;
 						</li>
 						<li>
-							<a class="active showType" href="#">Type</a>&nbsp;|&nbsp;
+							<a class="active showType" href="">Type</a>&nbsp;|&nbsp;
 						</li>
 						<li>
-							<a class="active showCreation" href="#">Creation</a>
+							<a class="active showCreation" href="">Creation</a>
 						</li>
 					</ul>
 				</div>
@@ -198,13 +212,13 @@
 					<p>Page:</p>
 					<ul class="pages">
 						<li>
-							<a class="pageNav active" href="#" value="1">1</a>&nbsp;|&nbsp;
+							<a class="pageNav active" href="" value="1">1</a>&nbsp;|&nbsp;
 						</li>
 						<li>
-							<a class="pageNav" href="#" value="2">2</a>&nbsp;|&nbsp;
+							<a class="pageNav" href="" value="2">2</a>&nbsp;|&nbsp;
 						</li>
 						<li>
-							<a class="pageNav" href="#" value="3">3</a>
+							<a class="pageNav" href="" value="3">3</a>
 						</li>
 					</ul>
 				</div>
@@ -212,8 +226,16 @@
 			<table id="filelist">
 				<thead>
 					<tr>
-						<th class="filename" onclick="sortByFilename();">Filename</th>
-						<th class="size" onclick="sortBySize();">Size</th>
+						<th class="filename">
+							<a href="" onclick="return sortByFilename();">
+								Filename
+							</a>
+						</th>
+						<th class="size">
+							<a href="" onclick="return sortBySize();">
+								Size
+							</a>
+						</th>
 						<th class="mimetype">Type</th>
 						<th class="creation_date">Creation</th>
 						<th class="actions">Actions</th>
@@ -357,16 +379,16 @@
 					<p>Number of entries per page:</p>
 					<ul>
 						<li>
-							<a class="itemsPerPage active" href="#" value="10">10</a>&nbsp;|&nbsp;
+							<a class="itemsPerPage active" href="" value="10">10</a>&nbsp;|&nbsp;
 						</li>
 						<li>
-							<a class="itemsPerPage" href="#" value="20">20</a>&nbsp;|&nbsp;
+							<a class="itemsPerPage" href="" value="20">20</a>&nbsp;|&nbsp;
 						</li>
 						<li>
-							<a class="itemsPerPage" href="#" value="50">50</a>&nbsp;|&nbsp;
+							<a class="itemsPerPage" href="" value="50">50</a>&nbsp;|&nbsp;
 						</li>
 						<li>
-							<a class="itemsPerPage" href="#" value="100">100</a>
+							<a class="itemsPerPage" href="" value="100">100</a>
 						</li>
 					</ul>
 				</div>
@@ -374,13 +396,13 @@
 					<p>Show/Hide:</p>
 					<ul>
 						<li>
-							<a class="active showSize" href="#">Size</a>&nbsp;|&nbsp;
+							<a class="active showSize" href="">Size</a>&nbsp;|&nbsp;
 						</li>
 						<li>
-							<a class="active showType" href="#">Type</a>&nbsp;|&nbsp;
+							<a class="active showType" href="">Type</a>&nbsp;|&nbsp;
 						</li>
 						<li>
-							<a class="active showCreation" href="#">Creation</a>
+							<a class="active showCreation" href="">Creation</a>
 						</li>
 					</ul>
 				</div>
@@ -388,13 +410,13 @@
 					<p>Page:</p>
 					<ul class="pages">
 						<li>
-							<a class="pageNav active" href="#" value="1">1</a>&nbsp;|&nbsp;
+							<a class="pageNav active" href="" value="1">1</a>&nbsp;|&nbsp;
 						</li>
 						<li>
-							<a class="pageNav" href="#" value="2">2</a>&nbsp;|&nbsp;
+							<a class="pageNav" href="" value="2">2</a>&nbsp;|&nbsp;
 						</li>
 						<li>
-							<a class="pageNav" href="#" value="3">3</a>
+							<a class="pageNav" href="" value="3">3</a>
 						</li>
 					</ul>
 				</div>

@@ -10,6 +10,14 @@ var items_per_page = 10;
 var current_page = 1;
 var total_items = -1;
 var total_pages = -1;
+// form validation global variables
+var firstname_valid = false;
+var lastname_valid = false;
+var bday_valid = false;
+var username_valid = false;
+var password_valid = false;
+var username_login_valid = false;
+var password_login_valid = false;
 
 loadUser(user_id);
 
@@ -45,6 +53,10 @@ $(document).ready(function(){
 			$(".size").show();
 		else
 			$(".size").hide();
+		/* Note:
+			return false to prevent the webpage from reloading on click
+		*/
+		return false;
 	});
 	$(".showType").click(function(){
 		$(".showType").toggleClass("active");
@@ -52,6 +64,7 @@ $(document).ready(function(){
 			$(".mimetype").show();
 		else
 			$(".mimetype").hide();
+		return false;
 	});
 	$(".showCreation").click(function(){
 		$(".showCreation").toggleClass("active");
@@ -59,6 +72,7 @@ $(document).ready(function(){
 			$(".creation_date").show();
 		else
 			$(".creation_date").hide();
+		return false;
 	});
 });
 
@@ -93,6 +107,7 @@ function sortByFilename(){
 	}
 	items = mergeSort(items, sortedAscendent, 'filename');
 	selectPage(1);
+	return false;
 }
 
 function sortBySize(){
@@ -104,6 +119,116 @@ function sortBySize(){
 	}
 	items = mergeSort(items, sortedAscendent, 'size');
 	selectPage(1);
+	return false;
+}
+
+// 4) Form validation
+function validateRegister(){
+	var form_valid = firstname_valid && lastname_valid && bday_valid && username_valid && password_valid;
+	if(form_valid)
+		$("#registerNotValid").hide();
+	else
+		$("#registerNotValid").show();
+	if(firstname_valid)
+		$("#firstnameNotValid").hide();
+	else
+		$("#firstnameNotValid").show();
+	if(lastname_valid)
+		$("#lastnameNotValid").hide();
+	else
+		$("#lastnameNotValid").show();
+	if(bday_valid)
+		$("#bdayNotValid").hide();
+	else
+		$("#bdayNotValid").show();
+	if(username_valid)
+		$("#usernameNotValid").hide();
+	else
+		$("#usernameNotValid").show();
+	if(password_valid)
+		$("#passwordNotValid").hide();
+	else
+		$("#passwordNotValid").show();
+	return form_valid;
+}
+
+function validateLogin(){
+	var form_valid = username_login_valid && password_login_valid;
+	if(form_valid)
+		$("#loginNotValid").hide();
+	else
+		$("#loginNotValid").show();
+	if(username_login_valid)
+		$("#usernameLoginNotValid").hide();
+	else
+		$("#usernameLoginNotValid").show();
+	if(password_login_valid)
+		$("#passwordLoginNotValid").hide();
+	else
+		$("#passwordLoginNotValid").show();
+	return form_valid;
+}
+
+function validateFirstName(){
+	var fname = $("#firstname_register").val();
+	if(fname != "")
+		firstname_valid = true;
+	else
+		firstname_valid = false;
+}
+
+function validateLastName(){
+	var lname = $("#lastname_register").val();
+	if(lname != "")
+		lastname_valid = true;
+	else
+		lastname_valid = false;
+}
+
+function validateBirthday(){
+	// Fehlermeldung wenn Datum > 11.11.1995
+	var bday = new Date($("#bday_register").val());
+	var minBDate = new Date("1995-11-11");
+	if(bday  <= minBDate)
+		bday_valid = true;
+	else
+		bday_valid = false;
+}
+
+function validateUsername(){
+	//Login: Benutzername != admin
+	var username = $("#username_register").val();
+	if(username != "" && username != "admin")
+		username_valid = true;
+	else
+		username_valid = false;
+}
+
+function validatePassword(){
+	// Passwort != 12345
+	var password = $("#password_register").val();
+	if(password != "" && password != "12345")
+		password_valid = true;
+	else
+		password_valid = false;
+}
+
+function validateUsernameLogin(){
+	//Login: Benutzername != admin
+	var username = $("#username_login").val();
+	if(username != "" && username != "admin")
+		username_login_valid = true;
+	else
+		username_login_valid = false;
+}
+
+function validatePasswordLogin(){
+	// Passwort != 12345
+	var password = $("#password_login").val();
+	if(password != "" && password != "12345")
+		password_login_valid = true;
+	else
+		password_login_valid = false;
 }
 
 // 5.1) Dynamic content: call web api
@@ -212,9 +337,9 @@ function displayPagesControl(pages){
 	while(i<=pages){
 		innerHTML += "<li>\n";
 		if(i == 1)
-			innerHTML += "<a class='pageNav active' href='#' value='";
+			innerHTML += "<a class='pageNav active' href='' value='";
 		else
-			innerHTML += "<a class='pageNav' href='#' value='";
+			innerHTML += "<a class='pageNav' href='' value='";
 		if(i!=pages)
 			innerHTML += i + "'>" + i + "</a>&nbsp;|&nbsp;\n";
 		else
@@ -237,6 +362,8 @@ function pageClick(){
 	if(!$(this).hasClass("active")){
 		selectPage($(this).attr("value"));
 	}
+	// avoid reloading
+	return false;
 }
 
 function selectPage(page){
@@ -280,6 +407,7 @@ $(document).ready(function(){
 			current_page = 1;
 			setItemsPerPage($(this).attr("value"));
 		}
+		return false;
 	});
 });
 // 5.5) END

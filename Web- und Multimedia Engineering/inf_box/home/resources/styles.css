@@ -21,6 +21,10 @@ p{
 	margin-right: 5px;
 }
 
+label.notvalid{
+	color: red;
+}
+
 /* ===== HEADER ===== */
 /* Header contains main nav. Only background, size and border definition*/
 header{
@@ -157,6 +161,12 @@ div.table-ctrl a.active:hover{
 	font-weight: bold;
 	text-align: left;
 	border-bottom:3px solid #cccccc; 
+}
+
+#filelist th a{
+	font-weight: bold;
+	color: black;
+	text-decoration: none;
 }
 
 #filelist td {
@@ -369,7 +379,9 @@ div.sticky-nav nav li:hover{
 	background-color: #333333;
 }
 
-/*Column widths for the filelist table. Width attribute on html <col> marked as obsolete
+/*
+Column widths for the filelist table. Width attribute on html <col> marked as obsolete
+*/
 table#filelist col:nth-child(1){
 	width: 60%;
 }
@@ -390,4 +402,4 @@ table#filelist col:nth-child(5){
 	width: 12.5%;
 }
 
-*/
+
