@@ -285,7 +285,7 @@ function displayTable(){
 		filelist += '<td class="mimetype">' + formatType(items[i].metadata.mimetype) + '</td>\n';
 		filelist += '<td class="creation_date">' + formatDate(items[i].metadata.creation_date) + '</td>\n';
 		filelist += '<td class="actions">\n';
-		filelist += '<a class="icon" href=""><i class="fa fa-eye fa-lg"></i></a>&nbsp;\n';
+		filelist += '<a class="icon preview" href="" value="' + i + '"><i class="fa fa-eye fa-lg"></i></a>&nbsp;\n';
 		filelist += '<a class="icon" href=""><i class="fa fa-share fa-lg"></i></a>&nbsp;&nbsp;|&nbsp;\n';
 		filelist += '<a class="icon" href=""><i class="fa fa-pencil fa-lg"></i></a>&nbsp;\n';
 		filelist += '<a class="icon" href=""><i class="fa fa-lock fa-lg"></i></a>&nbsp;\n';
@@ -293,8 +293,9 @@ function displayTable(){
 		filelist += '</tr>\n';
 		i++;
 	}
-	document.getElementById("files").innerHTML = filelist;
+	$("#files").html(filelist);
 	refreshHidden();
+//	$("a.preview").click(showPreview());
 }
 
 // 5.3) Dynamic content: load and display user info
@@ -421,4 +422,22 @@ $(document).ready(function(){
 		return false;
 	});
 });
+
+
+function hidePreviews(){
+	$("#imgpvw").removeClass("active");
+	return false;
+}
+
+function showPreview(){
+	alert("showPreview()");
+	var type = formatType(items[$(this).attr("value")].metadata.mimetype);
+	alert(type);
+	if(type == "Bild"){
+		alert(items[$(this).attr("value")].file_url);
+		document.getElementById("imgpvw").setAttribute("src",items[$(this).attr("value")].file_url);
+		$("#imgpvw").addClass("active");
+	}
+	return false;
+}
 // 5.5) END

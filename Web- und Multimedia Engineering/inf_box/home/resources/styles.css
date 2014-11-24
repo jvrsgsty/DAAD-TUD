@@ -379,6 +379,38 @@ div.sticky-nav nav li:hover{
 	background-color: #333333;
 }
 
+
+/* ===== FILE PREVIEWS ===== */
+
+div#imgpvw {
+	position: fixed;
+	width: 100%;
+	/*This index will put it under the sticky nav*/
+	z-index: 998;
+	background-color: rgba(170,170,170,0.3);
+	color: #ffffff;
+	height: auto;
+	top: 0px;
+	display: none;
+}
+
+div#imgpvw[class="active"]{
+	display: inline;
+}
+
+div#imgpvw img {
+	width: 500px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+div#imgpvw a {
+	color: white;
+	background: black;
+	text-decoration: none;
+}
+
 /*
 Column widths for the filelist table. Width attribute on html <col> marked as obsolete
 */
