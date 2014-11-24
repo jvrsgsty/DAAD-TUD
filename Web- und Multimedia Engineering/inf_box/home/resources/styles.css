@@ -1,6 +1,6 @@
 /* 
 inf_box stylesheet
-Last Updated: 18.11.2014
+Last Updated: 24.11.2014
 Author: Javier Sagastuy , Alejandro Escalante
 */
 /* Basic font settings*/
@@ -382,33 +382,48 @@ div.sticky-nav nav li:hover{
 
 /* ===== FILE PREVIEWS ===== */
 
-div#imgpvw {
+div#preview {
 	position: fixed;
 	width: 100%;
 	/*This index will put it under the sticky nav*/
 	z-index: 998;
-	background-color: rgba(170,170,170,0.3);
+	background-color: rgba(170,170,170,0.6);
 	color: #ffffff;
 	height: auto;
-	top: 0px;
+	padding: 50px 0px;
+	top: 60px;
+	left: 0px;
 	display: none;
 }
 
-div#imgpvw[class="active"]{
+div#preview[class="active"]{
 	display: inline;
 }
 
-div#imgpvw img {
-	width: 500px;
+div#preview img {
+	height: 600px;
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
 }
 
-div#imgpvw a {
+div#preview audio {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+div#preview video {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+div#preview a {
 	color: white;
-	background: black;
 	text-decoration: none;
+	float: right;
+	padding-right: 100px;
 }
 
 /*
