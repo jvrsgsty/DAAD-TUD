@@ -16,8 +16,8 @@ var lastname_valid = false;
 var bday_valid = false;
 var username_valid = false;
 var password_valid = false;
-var username_login_valid = false;
-var password_login_valid = false;
+var username_login_empty = true;
+var password_login_empty = true;
 
 loadUser(user_id);
 
@@ -153,19 +153,31 @@ function validateRegister(){
 }
 
 function validateLogin(){
-	var form_valid = username_login_valid && password_login_valid;
-	if(form_valid)
+	var form_empty = username_login_empty || password_login_empty;
+	var form_valid = false;
+	if(form_empty){
+		$("#loginEmpty").show();
 		$("#loginNotValid").hide();
-	else
-		$("#loginNotValid").show();
-	if(username_login_valid)
-		$("#usernameLoginNotValid").hide();
-	else
+	}else{
+		var username = $("#username_login").val();
+		var password = $("#password_login").val();
+		if(username == "admin" && password == "12345"){
+			form_valid = true;
+			$("#loginNotValid").hide();
+			$("#loginEmpty").hide();
+		}else{
+			$("#loginNotValid").show();
+			$("#loginEmpty").hide();
+		}
+	}
+	if(username_login_empty)
 		$("#usernameLoginNotValid").show();
-	if(password_login_valid)
-		$("#passwordLoginNotValid").hide();
 	else
+		$("#usernameLoginNotValid").hide();
+	if(password_login_empty)
 		$("#passwordLoginNotValid").show();
+	else
+		$("#passwordLoginNotValid").hide();
 	return form_valid;
 }
 
@@ -205,9 +217,8 @@ function validateUsername(){
 }
 
 function validatePassword(){
-	// Passwort != 12345
 	var password = $("#password_register").val();
-	if(password != "" && password != "12345")
+	if(password != "")
 		password_valid = true;
 	else
 		password_valid = false;
@@ -216,19 +227,19 @@ function validatePassword(){
 function validateUsernameLogin(){
 	//Login: Benutzername != admin
 	var username = $("#username_login").val();
-	if(username != "" && username != "admin")
-		username_login_valid = true;
+	if(username == "")
+		username_login_empty = true;
 	else
-		username_login_valid = false;
+		username_login_empty = false;
 }
 
 function validatePasswordLogin(){
 	// Passwort != 12345
 	var password = $("#password_login").val();
-	if(password != "" && password != "12345")
-		password_login_valid = true;
+	if(password == "")
+		password_login_empty = true;
 	else
-		password_login_valid = false;
+		password_login_empty = false;
 }
 
 // 5.1) Dynamic content: call web api
