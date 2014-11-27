@@ -439,15 +439,13 @@ function showPreview(){
 		$("#pvw_vid").hide();
 		document.getElementById("pvw_img").setAttribute("src",items[$(this).attr("value")].file_url);
 		$("#preview").addClass("active");
-	}
-	if(type == "Audio"){
+	}else if(type == "Audio"){
 		$("#pvw_img").hide();
 		$("#pvw_aud").show();
 		$("#pvw_vid").hide();
 		document.getElementById("pvw_aud_src").setAttribute("src",items[$(this).attr("value")].file_url);
 		$("#preview").addClass("active");
-	}
-	if(type == "Video"){
+	}else if(type == "Video"){
 		$("#pvw_img").hide();
 		$("#pvw_aud").hide();
 		$("#pvw_vid").show();
