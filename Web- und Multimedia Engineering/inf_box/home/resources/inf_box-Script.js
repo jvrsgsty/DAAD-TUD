@@ -1,6 +1,6 @@
 /* 
 inf_box script
-Last Updated: 24.11.2014
+Last Updated: 29.11.2014
 Author: Javier Sagastuy , Alejandro Escalante
 */
 // Global variables
@@ -428,29 +428,35 @@ function hidePreviews(){
 	$("#pvw_img").hide();
 	$("#pvw_aud").hide();
 	$("#pvw_vid").hide();
+	document.getElementById("pvw_aud").pause();
+	document.getElementById("pvw_vid").pause();
 	return false;
 }
 
 function showPreview(){
 	var type = formatType(items[$(this).attr("value")].metadata.mimetype);
+	var url = items[$(this).attr("value")].file_url;
+	//url = url.replace(" ", "");
 	if(type == "Bild"){
 		$("#pvw_img").show();
 		$("#pvw_aud").hide();
 		$("#pvw_vid").hide();
-		document.getElementById("pvw_img").setAttribute("src",items[$(this).attr("value")].file_url);
+		document.getElementById("pvw_img").setAttribute("src",url);
 		$("#preview").addClass("active");
 	}else if(type == "Audio"){
 		$("#pvw_img").hide();
 		$("#pvw_aud").show();
 		$("#pvw_vid").hide();
-		document.getElementById("pvw_aud_src").setAttribute("src",items[$(this).attr("value")].file_url);
+		document.getElementById("pvw_aud_src").setAttribute("src",url);
 		$("#preview").addClass("active");
+		document.getElementById("pvw_aud").load();
 	}else if(type == "Video"){
 		$("#pvw_img").hide();
 		$("#pvw_aud").hide();
 		$("#pvw_vid").show();
-		document.getElementById("pvw_vid_src").setAttribute("src",items[$(this).attr("value")].file_url);
+		document.getElementById("pvw_vid_src").setAttribute("src",url);
 		$("#preview").addClass("active");
+		document.getElementById("pvw_vid").load();
 	}
 	return false;
 }

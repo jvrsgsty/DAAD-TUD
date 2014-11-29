@@ -1,6 +1,6 @@
 /* 
 inf_box stylesheet
-Last Updated: 24.11.2014
+Last Updated: 29.11.2014
 Author: Javier Sagastuy , Alejandro Escalante
 */
 /* Basic font settings*/
@@ -428,23 +428,23 @@ div#preview a {
 /*
 Column widths for the filelist table. Width attribute on html <col> marked as obsolete
 */
-table#filelist col:nth-child(1){
+table#filelist th:nth-child(1){
 	width: 60%;
 }
 
-table#filelist col:nth-child(2){
+table#filelist th:nth-child(2){
 	width: 7.5%;
 }
 
-table#filelist col:nth-child(3){
+table#filelist th:nth-child(3){
 	width: 7.5%;
 }
 
-table#filelist col:nth-child(4){
+table#filelist th:nth-child(4){
 	width: 12.5%;
 }
 
-table#filelist col:nth-child(5){
+table#filelist th:nth-child(5){
 	width: 12.5%;
 }
 
