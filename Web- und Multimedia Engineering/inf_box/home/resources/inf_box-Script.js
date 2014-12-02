@@ -423,6 +423,15 @@ $(document).ready(function(){
 	});
 });
 
+// Add a key listener to the window that hides the previews with the ESC key
+$(document).ready(function(){
+	window.onkeyup = function(e){
+		if(e.keyCode == 27){
+			hidePreviews();
+		}
+	}
+});
+
 function hidePreviews(){
 	$("#preview").removeClass("active");
 	$("#pvw_img").hide();
@@ -436,6 +445,10 @@ function hidePreviews(){
 function showPreview(){
 	var type = formatType(items[$(this).attr("value")].metadata.mimetype);
 	var url = items[$(this).attr("value")].file_url;
+	/*Note:
+		The starting space of the URL does not affect the outcome, and
+		it comes from the way the XML from the API is built
+	*/
 	//url = url.replace(" ", "");
 	if(type == "Bild"){
 		$("#pvw_img").show();
