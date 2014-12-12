@@ -1,5 +1,5 @@
 inf_box
-Second course exercise JavaScript
+Third course exercise XML and PHP
 Web- und Multimedia Engineering
 Team # 1
 Javier Sagastuy		(s9650555)

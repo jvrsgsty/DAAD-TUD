@@ -1,0 +1,476 @@
+/* 
+inf_box stylesheet
+Last Updated: 12.12.2014
+Author: Javier Sagastuy , Alejandro Escalante
+*/
+/* Basic font settings*/
+body {
+	font: normal normal 400 14px/145% "Ubuntu", Tahoma, Geneva, "Trebuchet MS", Helvetica, sans-serif;
+	padding: 0 0 5em 0;
+}
+
+h1 {
+	font: normal normal 300 3em/140% "Ubuntu Condensed", "Ubuntu", Tahoma, Geneva, "Trebuchet MS", Helvetica, sans-serif;
+	margin: 1em 0 .5em;
+}
+
+p{
+	color:#999999;
+	display: inline-block;
+	float: left;
+	margin-right: 5px;
+}
+
+.black{
+	color:black;
+}
+
+.notvalid{
+	color: red;
+}
+
+/* ===== HEADER ===== */
+/* Header contains main nav. Only background, size and border definition*/
+header{
+	background: -webkit-linear-gradient(#d0d0d0, #efefef); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(#d0d0d0, #efefef); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(#d0d0d0, #efefef); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(#d0d0d0, #efefef); /* Standard syntax (must be last) */
+	border-bottom:1px solid #cccccc; 
+	height: 80px;
+}
+
+/* Main container width and center settings*/
+main {
+	width:1170px;
+	padding:5px; 
+	margin-right: auto;
+	margin-left: auto;
+}
+
+/* Header nav container size and center settings */
+header > nav {
+	width:1170px;
+	height:80px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+/* List elements inside a nav */
+header > nav > ul > li {
+	border-right: 1px solid #ccc;
+	display: block;
+	float: left;
+	position: relative;
+}
+
+header > nav > ul > li:first-child {
+	border-left: 1px solid #ccc;
+}
+
+nav ul, 
+nav li,
+div.table-ctrl ul,
+div.table-ctrl li {
+	display: block;
+	float: left;
+	list-style: none none inside;
+}
+
+/* Class header was defined for elements inside de header nav */
+*[class*="header"]{
+	height:80px;
+	color:#666666;
+	text-decoration: none;
+}
+
+/* Logo settings for sprite effects */
+.logo {
+	height: 80px;
+	overflow: hidden;
+	display:inline-block;
+	padding-right: 60px;
+}
+
+/* Hover effect for the logo */
+.logo img:hover{
+	margin-top: -80px;
+}
+
+/* Header navidation elements style */
+a[class*="header"], div[class*="header"]{
+	text-align:center;
+	line-height: 80px;/* TODO: revisar si podemos centrar esto de otra manera */
+	display: block;
+	padding-left: 20px;
+	padding-right: 20px;
+	/* Color transition */
+	-webkit-transition: background 2s, color 1s; /* For Safari 3.1 to 6.0 */
+	transition: background 2s, color 1s;
+}
+
+/* End state for hover transition */
+li[class*="transition"]:hover > a{
+	background: #cccccc;
+	color:#1a1a1a;
+}
+
+/* Selected elements */
+li[class*="selected"] > a,
+li[class*="selected"]:hover > a
+{
+	background: #666666;
+	color:#f0f0f0;
+}
+
+/* ===== BODY ===== */
+div.table-ctrl{
+	width:100%;
+	height:auto;
+	color:#999999;
+	padding: 5px;
+	padding-bottom: 30px;
+}
+
+div.table-ctrl div{
+	margin-right: 25px;
+}
+
+div.table-ctrl a{
+	color: #2ed110;
+	text-decoration: underline;
+}
+
+div.table-ctrl a:hover{
+	color: #108500;
+	text-decoration: none;
+}
+
+div.table-ctrl a.active{
+	color: #cccccc;
+	text-decoration: underline;
+}
+
+div.table-ctrl a.active:hover{
+	text-decoration: none;
+}
+
+/* Main content table id=filelist */
+#filelist {
+	width:100%;
+	color:black;
+	margin-right: auto;
+	margin-left: auto;
+	border-collapse: collapse;
+}
+
+#filelist th {
+	font-weight: bold;
+	text-align: left;
+	border-bottom:3px solid #cccccc; 
+}
+
+#filelist th a{
+	font-weight: bold;
+	color: black;
+	text-decoration: none;
+}
+
+#filelist td {
+	padding: 5px;
+	vertical-align: top;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #eeeeee;
+}
+
+#filelist td.actions{
+	color:#999999;
+}
+
+#filelist a.icon{
+	color:#2ed110;
+}
+
+#filelist a.icon:hover{
+	color:#108500;
+}
+
+#filelist img {
+	margin-right: 10px;
+	width: 42px;
+	height: 42px;
+}
+
+/* ===== FOOTER ===== */
+/* footer size and center settings */
+footer{
+	margin-right: auto;
+	margin-left: auto;
+	width:1170px;
+	padding:5px; 
+	margin-top: 50px;
+	border-top:1px solid #2ed110; 
+}
+
+div[class*="footer"]{
+	color:#666666;
+	font-size:12px;
+	display:inline;
+	margin-bottom: 50px;
+}
+
+/* ===== CSS DROPDOWN POPUPS ===== */
+#popup li > a:first-child {
+	height:80px;
+	position: relative;
+}
+
+#popup a ~ div{
+	position: absolute;
+	display: none;
+	position: absolute;
+	z-index: 5;
+	top: 80px;
+	right: -1px;
+	line-height: 140%;
+	width: 240px;
+	margin: 0px;
+	padding: 28px;
+	padding-bottom: 0px;
+	color: #a1a1a1;
+	font-weight: normal;
+	background: #fcfcfc;
+	border: 1px solid #cccccc;
+	border-top-color: #2ed110;
+	-webkit-border-bottom-left-radius: 3;
+	-moz-border-bottom-left-radius: 3;
+	-webkit-border-bottom-right-radius: 3;
+	-moz-border-bottom-right-radius: 3;
+	border-bottom-left-radius: 3px;
+	border-bottom-right-radius: 3px;
+	box-shadow: 0px 1px 3px #cccccc;
+}
+
+div.login {
+	display: block;
+	z-index: 5;
+	line-height: 140%;
+	width: 240px;
+	margin: 0px;
+	padding: 28px;
+	padding-bottom: 0px;
+	color: #a1a1a1;
+	font-weight: normal;
+	background: #fcfcfc;
+}
+
+#popup a:hover ~ div {
+	display: block;
+}
+
+#popup a ~ div:hover {
+	display: inline;
+}
+
+#popup a ~ div table,
+div.login table{
+	width: 100%;
+}
+
+#popup a ~ div table td,
+div.login table td{
+	padding-bottom: 15px;
+}
+
+#popup a ~ div input,
+div.login input:not(*[type="submit"]){
+	background-color: #fafafa;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	border: 1px solid #dddddd;
+	width:100%;
+	height:25px;
+	line-height: 140%;
+}
+
+#popup a ~ div input[type="checkbox"],
+div.login input[type="checkbox"]{
+	width: 13px;
+}
+
+/* Horizontal ruler popup */
+hr#register {
+	display: block;
+	height: 1px;
+	border: 0;
+	border-top: 1px dashed #cccccc;
+	margin: 1em 0;
+	padding: 0;
+}
+
+/* Popup button */
+*[class*="grn-btn"] {
+	background: #00da19;
+	background-image: -webkit-linear-gradient(top, #00da19, #00a500);
+	background-image: -moz-linear-gradient(top, #00da19, #00a500);
+	background-image: -ms-linear-gradient(top, #00da19, #00a500);
+	background-image: -o-linear-gradient(top, #00da19, #00a500);
+	background-image: linear-gradient(to bottom, #00da19, #00a500);
+	-webkit-border-radius: 3;
+	-moz-border-radius: 3;
+	border-radius: 3px;
+	color: #ffffff;
+	font-size: 14px;
+	font-weight: bold;
+	padding: 0px 10px 0px 10px;
+	vertical-align: middle;
+	border: solid #dddddd 1px;
+	text-decoration: none;
+	height: 40px;
+	line-height: 40px;
+}
+
+*[class*="grn-btn"]:hover {
+	background: #00a500;
+	background-image: -webkit-linear-gradient(top, #00a500, #00da19);
+	background-image: -moz-linear-gradient(top, #00a500, #00da19);
+	background-image: -ms-linear-gradient(top, #00a500, #00da19);
+	background-image: -o-linear-gradient(top, #00a500, #00da19);
+	background-image: linear-gradient(to bottom, #00a500, #00da19);
+	text-decoration: none;
+}
+
+*[class*="grn-btn"]:active {
+	background: #00a500;
+	text-decoration: none;
+}
+
+/* ===== ALIGN ===== */
+*[class*="fltleft"]{
+	float: left;
+}
+
+*[class*="fltright"]{
+	float:right;
+}
+
+*[class*="txtleft"]{
+	text-align: left;
+}
+
+*[class*="txtright"]{
+	text-align: right;
+}
+
+*[class*="info"]{
+	font-size: 18px;
+	color: black;
+}
+
+/* ===== STICKY-NAV ===== */
+div.sticky-nav{
+	width: 100%;
+	background-color: #1a1a1a;
+	color: #ffffff;
+	height: 60px;
+	position: fixed;
+	top: -60px;
+	z-index: 999;
+	-webkit-transition: top 0.5s ease;
+	transition: top 0.5s ease;
+}
+
+div.is-sticky{
+	top: 0px;
+}
+
+div.sticky-nav > nav {
+	width:1170px;
+	height:60px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+div.sticky-nav nav a{
+	height:60px;
+	line-height: 60px;
+	color: #ffffff;
+	text-decoration: none;
+	padding: 0 20px;
+}
+
+div.sticky-nav nav li:hover{
+	background-color: #333333;
+}
+
+
+/* ===== FILE PREVIEWS ===== */
+
+div#preview {
+	position: fixed;
+	width: 100%;
+	/*This index will put it under the sticky nav*/
+	z-index: 998;
+	background-color: rgba(170,170,170,0.6);
+	color: #ffffff;
+	height: auto;
+	padding: 50px 0px;
+	top: 60px;
+	left: 0px;
+	display: none;
+}
+
+div#preview[class="active"]{
+	display: inline;
+}
+
+div#preview img {
+	height: 600px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+div#preview audio {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+div#preview video {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+div#preview a {
+	color: white;
+	float: right;
+	padding-right: 100px;
+}
+
+/*
+Column widths for the filelist table. Width attribute on html <col> marked as obsolete
+*/
+table#filelist th:nth-child(1){
+	width: 60%;
+}
+
+table#filelist th:nth-child(2){
+	width: 7.5%;
+}
+
+table#filelist th:nth-child(3){
+	width: 7.5%;
+}
+
+table#filelist th:nth-child(4){
+	width: 12.5%;
+}
+
+table#filelist th:nth-child(5){
+	width: 12.5%;
+}
+
+
