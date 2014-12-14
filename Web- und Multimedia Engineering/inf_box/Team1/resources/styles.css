@@ -1,6 +1,6 @@
 /* 
 inf_box stylesheet
-Last Updated: 12.12.2014
+Last Updated: 14.12.2014
 Author: Javier Sagastuy , Alejandro Escalante
 */
 /* Basic font settings*/
@@ -228,7 +228,6 @@ div[class*="footer"]{
 #popup a ~ div{
 	position: absolute;
 	display: none;
-	position: absolute;
 	z-index: 5;
 	top: 80px;
 	right: -1px;
@@ -236,7 +235,7 @@ div[class*="footer"]{
 	width: 240px;
 	margin: 0px;
 	padding: 28px;
-	padding-bottom: 0px;
+	padding-bottom: 15px;
 	color: #a1a1a1;
 	font-weight: normal;
 	background: #fcfcfc;
@@ -258,10 +257,14 @@ div.login {
 	width: 240px;
 	margin: 0px;
 	padding: 28px;
-	padding-bottom: 0px;
+	padding-bottom: 15px;
 	color: #a1a1a1;
 	font-weight: normal;
 	background: #fcfcfc;
+}
+
+div.login input{
+	margin: 15px 0px;
 }
 
 #popup a:hover ~ div {
@@ -270,16 +273,6 @@ div.login {
 
 #popup a ~ div:hover {
 	display: inline;
-}
-
-#popup a ~ div table,
-div.login table{
-	width: 100%;
-}
-
-#popup a ~ div table td,
-div.login table td{
-	padding-bottom: 15px;
 }
 
 #popup a ~ div input,
@@ -311,6 +304,7 @@ hr#register {
 
 /* Popup button */
 *[class*="grn-btn"] {
+	display: block;
 	background: #00da19;
 	background-image: -webkit-linear-gradient(top, #00da19, #00a500);
 	background-image: -moz-linear-gradient(top, #00da19, #00a500);

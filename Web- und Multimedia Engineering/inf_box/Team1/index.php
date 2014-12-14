@@ -31,25 +31,17 @@
 			<div class="txtleft login">
 				<form action="" method="post">
 					<label class="notvalid">
-						<?php echo $error;?>
+						<?php echo $error, "<br />";?>
 					</label>
-					<table>
-						<tbody>
-							<tr><td>
-								Username
-								<input type="text" id="username" name="username">
-							</td></tr>
-							<tr><td>
-								Password
-								<input type="password" id="password" name="password">
-							</td></tr>
-							<tr ><td>
-								<input name="submit" type="submit" class="grn-btn-fltleft" value="Login">
-							</td></tr>
-						</tbody>
-					</table>
+					Username
+					<input type="text" id="username" name="username">
+					Password
+					<input type="password" id="password" name="password">
+					<input name="submit" type="submit" class="grn-btn-fltleft" value="Login">
+					<br /><br /><br /><br />
 				</form>
 			</div>
+			<br />
 			<p class="black">
 				Hinweise: 
 			</p>

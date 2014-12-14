@@ -1,6 +1,6 @@
 /* 
 inf_box script
-Last Updated: 29.11.2014
+Last Updated: 14.12.2014
 Author: Javier Sagastuy , Alejandro Escalante
 */
 // Global variables
@@ -474,3 +474,60 @@ function showPreview(){
 	return false;
 }
 // 5.5) END
+
+// ===== Exercise 3 functions =====
+// Loads the result.xml file 
+function loadAdminDataFromFile(path){
+	$(document).ready(function(){
+		items = [];
+		$.ajax({
+			type: "GET",
+			url: path,
+			dataType: "xml",
+			success: function(xml) {
+				$('item', xml).each(function (idx, item) {
+					var obj = xmlToJSON(item);
+					items.push(obj);
+				});
+				total_items = items.length;
+				// Default sorting
+				items = mergeSort(items, /*asc*/true, /*property*/'filename');
+				sortedAscendent = true;
+				sortedByFilename = true;
+				adjustPagesControl();
+			},
+			error: function() {
+				alert("The XML File could not be processed correctly.");
+			}
+		});
+	});
+}
+
+// Creates a JSON "item" object from xml data contained in item
+// Formats attributes according to their type
+function xmlToJSON(item){
+	var metadataXML = $(item).find('metadata');
+	var metadata = {
+		"size" : parseInt($(metadataXML).find('size').text()),
+		"creation_date" : $(metadataXML).find('creation_date').text(),
+		"mimetype" : $(metadataXML).find('mimetype').text(),
+		"thumbnail_available" : $(metadataXML).find('thumbnail_available').text() == "true"
+	};
+	var result = {
+		"id" : $(item).find('id').text(),
+		"filename" : $(item).find('filename').text(),
+		"file_url" : $(item).find('file_url').text(),
+		"metadata" : metadata
+	};
+	// var metadata = new Object();
+	// metadata.size = parseInt($(metadataXML).find('size').text());
+	// metadata.creation_date = $(metadataXML).find('creation_date').text();
+	// metadata.mimetype = $(metadataXML).find('mimetype').text();
+	// metadata.thumbnail_available = $(metadataXML).find('thumbnail_available').text() == "true";
+	// var result = new Object();
+	// result.id = $(item).find('id').text();
+	// result.filename = $(item).find('filename').text();
+	// result.file_url = $(item).find('file_url').text();
+	// result.metadata = metadata;
+	return result;
+}

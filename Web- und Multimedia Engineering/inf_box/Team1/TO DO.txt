@@ -1,7 +1,7 @@
 Uebung 3
 
 0) Others
-[ ] Update README.txt
+[x] Update README.txt
 
 1) Login validation on Server
 [x] Create login page
@@ -21,13 +21,16 @@ Uebung 3
 [x] Description of the XLS Transformation for files.xml: transformation.xslt
 	A: Size defaults to 10 because there is no info. Maybe make size optional in schema?
 	A: thumbnail_available defaults to false
-[ ] Process transformation and save result of the transformation: result.xml
+[x] Process transformation and save result of the transformation: result.xml
 	A: See http://www.w3schools.com/xsl/xsl_server.asp or http://www.w3schools.com/xsl/xsl_editxml.asp
-[ ] Show the information from result.xml as a table
+[x] Show the information from result.xml as a table
+	J: had to do a workaround: read xml file, convert items to JSON objects, use existing javascript
 
 4) Admin interface
 [x] Menu adaptation
-[ ] Replace table with a form
+[x] Replace table with a form
+	J: Done, but generated a problem with div overflow
+[ ] Fix CSS (both in Team1 and home directories): How to format to remove <br /> tag in index.php:41
 [ ] Extra: integration of results window and showing it with AJAX
 
 a) BUGS

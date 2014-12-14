@@ -1,10 +1,11 @@
 <!-- 
 login.php
 PHP script to validate login form
-Last Updated: 12.12.2014
+Last Updated: 14.12.2014
 Author: Javier Sagastuy , Alejandro Escalante
  -->
 <?php
+	transform();
 	session_start();
 	$error = "";
 	if (isset($_POST['submit'])) {
@@ -41,5 +42,22 @@ Author: Javier Sagastuy , Alejandro Escalante
 				$error = "Username or Password is invalid";
 			}
 		}
+	}
+
+	// transformation from files.xml to result.xml
+	function transform($xmlPath="resources/files.xml", $xsltPath="resources/transformation.xslt"){
+		$xslt = new DOMDocument();
+		$xslt->load($xsltPath);
+
+		$xml = new DOMDocument();
+		$xml->load($xmlPath);
+
+		$proc = new XSLTProcessor();
+		$proc->importStylesheet($xslt);
+		$result = $proc->transformToXML($xml);
+
+		$file = fopen("resources/result.xml", "w") or die("Unable to open file!");
+		fwrite($file, $result);
+		fclose($file);
 	}
 ?>

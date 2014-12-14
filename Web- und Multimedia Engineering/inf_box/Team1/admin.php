@@ -22,22 +22,22 @@
 				<nav>
 					<ul class="fltleft">
 						<li class="sticky">
-							<a class="sticky-fltleft" href="#overview">
+							<a class="sticky-fltleft" href="resources/infbox_schema_normal.xsd">
 								2. Schema
 							</a>
 						</li>
 						<li class="sticky">
-							<a class="sticky-fltleft" href="#overview">
+							<a class="sticky-fltleft" href="resources/infbox_schema_extended.xsd">
 								3.1 Schema (extended)
 							</a>
 						</li>
 						<li class="sticky">
-							<a class="sticky-fltleft" href="#overview">
+							<a class="sticky-fltleft" href="resources/transformation.xslt">
 								3.2 Transformation
 							</a>
 						</li>
 						<li class="sticky">
-							<a class="sticky-fltleft" href="#overview">
+							<a class="sticky-fltleft" href="resources/result.xml">
 								3.3 Result
 							</a>
 						</li>
@@ -52,22 +52,22 @@
 				</a>
 				<ul class="fltleft">
 					<li class="transition">
-						<a class="header-fltleft" href="#1">
+						<a class="header-fltleft" href="resources/infbox_schema_normal.xsd">
 							2. Schema
 						</a>
 					</li>
-					<li class="transition-selected">
-						<a class="header-fltleft" href="#2">
+					<li class="transition">
+						<a class="header-fltleft" href="resources/infbox_schema_extended.xsd">
 							3.1 Schema (extended)
 						</a>
 					</li>
 					<li class="transition">
-						<a class="header-fltleft" href="#3">
+						<a class="header-fltleft" href="resources/transformation.xslt">
 							3.2 Transformation
 						</a>
 					</li>
 					<li class="transition">
-						<a class="header-fltleft" href="#4">
+						<a class="header-fltleft" href="resources/result.xml">
 							3.3 Result
 						</a>
 					</li>
@@ -78,27 +78,13 @@
 							<i class="fa fa-user fa-lg"></i>&nbsp;&nbsp; <label id="username"><?php echo $user; ?></label>
 						</a>
 							<div class="txtleft">
-								<form>
-									<table>
-										<tbody>
-											<tr><td>
-												Your Name: <br />
-												<label class="info" id="display_name"><?php echo $user; ?></label>
-											</td></tr>
-											<tr><td>
-												Your Email: <br />
-												<label class="info" id="email_address">jane.doe@example.org</label>
-											</td></tr>
-											<tr><td>
-												Your Quota (max/used):<br />
-												<label class="info" id="quota">2.5 GB / 7.0 GB</label>
-											</td></tr>
-											<tr><td>
-												<a class="grn-btn-fltright" href="logout.php">Logout</a>
-											</td></tr>
-										</tbody>
-									</table>
-								</form>
+									Your Name: <br />
+									<label class="info" id="display_name"><?php echo $user; ?></label><br />
+									Your Email: <br />
+									<label class="info" id="email_address">admin@inf_box.com</label><br />
+									Your Quota (max/used):<br />
+									<label class="info" id="quota">2.5 GB / 7.0 GB</label><br />
+									<a class="grn-btn-fltright" href="logout.php">Logout</a><br />
 							</div>
 					</li>
 				</ul>
@@ -378,5 +364,6 @@
 		<script src="resources/jquery-1.11.1.min.js"></script>
 		<script src="resources/inf_box-util.js"></script>
 		<script src="resources/inf_box-Script.js"></script>
+		<script>loadAdminDataFromFile("resources/result.xml");</script>
 	</body>
 </html>

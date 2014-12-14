@@ -1,6 +1,6 @@
 /* 
 inf_box util script
-Last Updated: 18.11.2014
+Last Updated: 14.12.2014
 Author: Javier Sagastuy , Alejandro Escalante
 Description: utility functions for inf_box, including output formatting
 */
@@ -37,7 +37,7 @@ function formatDate(date){
 	var month = myDate.getMonth() + 1;
 	var year = myDate.getFullYear();
 	var hour = myDate.getHours();
-	var minute = myDate.getMinutes();
+	var minute = ("0" + myDate.getMinutes()).slice(-2);
 	return day + "." + month + "." + year + " " + hour + ":" + minute;
 }
 
