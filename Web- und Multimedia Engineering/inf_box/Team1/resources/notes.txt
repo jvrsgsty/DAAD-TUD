@@ -1,0 +1,9 @@
+XML Schema Notes:
+
+1)	The attribute "ref" from <element> references the name attribute of a
+	previously defined (global) <element>
+2)	The attribute "type" from <element> references the name attribute of a
+	previously defined <simpleType> or <complexType>
+3)	The types xsd:integer, xsd:positiveInteger, etc do not establish size
+	restrictions, whereas xsd:int, xsd:long, etc do
+

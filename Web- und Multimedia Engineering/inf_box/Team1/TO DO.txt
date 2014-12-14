@@ -1,63 +1,53 @@
-Uebung 2
+Uebung 3
 
 0) Others
 [ ] Update README.txt
 
-1) Sticky Nav
-[x] HTML design
-[x] CSS design and slide transition
-[x] JS functionality: add/remove class
+1) Login validation on Server
+[x] Create login page
+[x] Access only to users
+[x] Read file with users information
+[x] Handling of passwords with PHP
 
-2) Columns show / hide
-[x] HTML classes
-[x] CSS for <a> elements
-[x] JS functionality: hide/show
+2) Describe current Web Service with one XML Schema
+[x] Complete description in one file: infbox_schema_normal.xsd
+[x] Definition of unique data types and lists
+[x] Optimal and flexible structure
 
-3) Sort
-[x] By filename
-[x] By size
-[x] Make the headers of the table hyperlinks.
-	Right now, it works with the <th> element
-	J: Done. Inserted an anchor inside the <th>, styled it with CSS, added the onclick event AND changed the callback so it returns false and avoids page reload. 
+3) XSL Transformations, extended XML Schema
+[ ] Extension of the XML Schema for old (and new) format: infbox_schema_extended.xsd
+[ ] Description of the XLS Transformation for files.xml: transformation.xslt
+[ ] Process transformation and save result of the transformation: result.xml
+[ ] Show the information from result.xml as a table
 
-4) Validate forms: Register and Login
-[x] All fields are obligatory
-[x] Login: Benutzername != admin / Passwort != 12345
-[x] Register: Fehlermeldung wenn Datum > 11.11.1995
-
-5) Dynamic content
-[x] Table list display
-[x] Use the id of the item as a CSS class on each row
-[x] User info display
-	A: Should function loadUser call loadData?
-	A: Function lookForUser could be optimized (while)
-	J: Yes, better idea. Done
-[x] Change user through temp button: enter username in login input field, then click on load
-[x] Modify how many items are shown per page (with shadow)
-[x] Page navigation (with shadow)
-[ ] Lightbox preview
-	J: plugins?
-	A: idk. The pdf says lightbox-ähnliches
+4) Admin interface
+[x] Menu adaptation
+[ ] Replace table with a form
+[ ] Extra: integration of results window and showing it with AJAX
 
 a) BUGS
-[ ] When the mouse hovers over a cached Autofill element of a textbox, the popup menu hides.
-	J: Have not seen this behaviour
-	A: To see this behaviour:
-		1) Type a user
-		2) Click login button
-		3) Start typing the user again until suggested
-		4) Hover mouse over suggestion
-	J: This behaviour is still not present in my browser... Komisch...
-[x] The Items/Page and Page# features interfere with the Hide/Size feature
-	-> The hidden columns are now refreshed everytime the table is reloaded
 
 b) Not important
-	J: love the "Not important" title
-[x] A: Should we use the document ready function for utils?
-	A: I just understood the ready function (better). The answer is no
-[ ] A: I think we could make a more correct use of the document ready function
-		J: perhaps... I started using it without fully understanding it...
-[x] A: Should we remove all href="#"? The site does not look so dynamic with these
-		J: Yes, just removed them and replaced with an empty href="" attr
-		J: IMPORTANT: I needed to add a return false; to the callback functions on the click events for page navigation to prevent the anchors from reloading the page, as well as changing the onclick attr on the table header, to make it return the false value to the callback function. 
-[ ] A: Maybe change all " " on inf_box-Script.js to ' ' or the other way around
+[ ] Use pattern restrictions for username, birthday, email?
+
+
+Special Patterns definition:
+
+<xsd:simpleType name="TUsername">
+	<xsd:restriction base="xsd:string">
+		<xsd:pattern value="[a-z][a-z0-9_\-]\+"/>
+	</xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="TBirthday">
+	<xsd:restriction base="xsd:string">
+		<xsd:pattern value="[0-9]{2}\.[0-9]{2}\.[0-9]{4}"/>
+	</xsd:restriction>
+</xsd:simpleType>
+
+<!-- This pattern is not yet finished -->
+<xsd:simpleType name="TEmail">
+	<xsd:restriction base="xsd:string">
+		<xsd:pattern value="[a-z][a-z0-9_\-\.]\+@[a-z][a-z0-9\-]\."/>
+	</xsd:restriction>
+</xsd:simpleType>

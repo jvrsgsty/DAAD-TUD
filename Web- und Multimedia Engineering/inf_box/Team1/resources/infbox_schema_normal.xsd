@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+<xsd:complexType name="TUser">
+	<xsd:sequence>
+		<xsd:element name="id" type="xsd:positiveInteger"/>
+		<xsd:element name="username" type="xsd:string"/>
+		<xsd:element name="display_name" type="xsd:string"/>
+		<xsd:element name="birthday" type="xsd:string"/>
+		<xsd:element name="email_address" type="xsd:string"/>
+		<xsd:element name="quota" type="xsd:nonNegativeInteger"/>
+		<xsd:element name="quota_used" type="xsd:nonNegativeInteger"/>
+	</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="TUsers">
+	<xsd:sequence>
+		<xsd:element name="user" type="TUser" maxOccurs="unbounded"/>
+	</xsd:sequence>
+</xsd:complexType>
+
+<xsd:simpleType name="TMimetype">
+	<xsd:restriction base="xsd:string">
+		<xsd:enumeration value="txt/plain"/>
+		<xsd:enumeration value="image/jpeg"/>
+		<xsd:enumeration value="audio/mpeg3"/>
+		<xsd:enumeration value="video/mp4"/>
+	</xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="TMetadata">
+	<xsd:sequence>
+		<xsd:element name="size" type="xsd:nonNegativeInteger"/>
+		<xsd:element name="creation_date" type="xsd:dateTime"/>
+		<xsd:element name="mimetype" type="TMimetype"/>
+		<xsd:element name="thumbnail_available" type="xsd:boolean"/>
+	</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="TItem">
+	<xsd:sequence>
+		<xsd:element name="id" type="xsd:nonNegativeInteger"/>
+		<xsd:element name="filename" type="xsd:string"/>
+		<xsd:element name="file_url" type="xsd:string"/>
+		<xsd:element name="metadata" type="TMetadata"/>
+	</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="TItems">
+	<xsd:sequence>
+		<xsd:element name="item" type="TItem" maxOccurs="unbounded"/>
+	</xsd:sequence>
+</xsd:complexType>
+
+<!-- Declaration of all possible root nodes from current Web Service -->
+<xsd:element name="users" type="TUsers"/>
+<xsd:element name="user" type="TUser"/>
+<xsd:element name="items" type="TItems"/>
+<xsd:element name="item" type="TItem"/>
+<xsd:element name="metadata" type="TMetadata"/>
+
+</xsd:schema>
