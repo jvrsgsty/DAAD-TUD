@@ -15,7 +15,9 @@ Uebung 3
 [x] Optimal and flexible structure
 
 3) XSL Transformations, extended XML Schema
-[ ] Extension of the XML Schema for old (and new) format: infbox_schema_extended.xsd
+[x] Extension of the XML Schema for old (and new) format: infbox_schema_extended.xsd
+	A: It is possible that the BOM (encoding) from files.xml will cause an error such as:
+		"Content is not allowed in prolog"
 [ ] Description of the XLS Transformation for files.xml: transformation.xslt
 [ ] Process transformation and save result of the transformation: result.xml
 [ ] Show the information from result.xml as a table
@@ -29,6 +31,7 @@ a) BUGS
 
 b) Not important
 [ ] Use pattern restrictions for username, birthday, email?
+[ ] Use pattern restriction for old creation_date format?
 
 
 Special Patterns definition:
@@ -49,5 +52,11 @@ Special Patterns definition:
 <xsd:simpleType name="TEmail">
 	<xsd:restriction base="xsd:string">
 		<xsd:pattern value="[a-z][a-z0-9_\-\.]\+@[a-z][a-z0-9\-]\."/>
+	</xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="TOldDate">
+	<xsd:restriction base="xsd:string">
+		<xsd:pattern value="[0-9]{2}\.[0-9]{2}\.[0-9]{4}-[0-9]{2}:[0-9]{2}"/>
 	</xsd:restriction>
 </xsd:simpleType>

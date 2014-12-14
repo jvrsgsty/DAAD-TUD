@@ -60,4 +60,33 @@
 <xsd:element name="item" type="TItem"/>
 <xsd:element name="metadata" type="TMetadata"/>
 
+<!-- Declaration of types for old Web Service -->
+
+<xsd:simpleType name="TFiletype">
+	<xsd:restriction base="xsd:string">
+		<xsd:enumeration value="jpeg"/>
+		<xsd:enumeration value="txt"/>
+		<xsd:enumeration value="mp3"/>
+	</xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="TFile">
+	<xsd:sequence>
+		<xsd:element name="id" type="xsd:nonNegativeInteger"/>
+		<xsd:element name="filename" type="xsd:string"/>
+		<xsd:element name="filepath" type="xsd:string"/>
+		<xsd:element name="creation_date" type="xsd:string"/>
+		<xsd:element name="filetype" type="TFiletype"/>
+	</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="TFiles">
+	<xsd:sequence>
+		<xsd:element name="file" type="TFile" maxOccurs="unbounded"/>
+	</xsd:sequence>
+</xsd:complexType>
+
+<!-- Declaration of the root node for old Web Service -->
+<xsd:element name="files" type="TFiles"/>
+
 </xsd:schema>
