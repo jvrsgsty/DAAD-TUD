@@ -18,8 +18,11 @@ Uebung 3
 [x] Extension of the XML Schema for old (and new) format: infbox_schema_extended.xsd
 	A: It is possible that the BOM (encoding) from files.xml will cause an error such as:
 		"Content is not allowed in prolog"
-[ ] Description of the XLS Transformation for files.xml: transformation.xslt
+[x] Description of the XLS Transformation for files.xml: transformation.xslt
+	A: Size defaults to 10 because there is no info. Maybe make size optional in schema?
+	A: thumbnail_available defaults to false
 [ ] Process transformation and save result of the transformation: result.xml
+	A: See http://www.w3schools.com/xsl/xsl_server.asp or http://www.w3schools.com/xsl/xsl_editxml.asp
 [ ] Show the information from result.xml as a table
 
 4) Admin interface
