@@ -47,12 +47,12 @@ $(document).ready(function(){
 
 // 2) Hide columns
 $(document).ready(function(){
-	$(".showSize").click(function(){
-		$(".showSize").toggleClass("active");
+	$(".showID").click(function(){
+		$(".showID").toggleClass("active");
 		if($(this).hasClass("active"))
-			$(".size").show();
+			$(".id").show();
 		else
-			$(".size").hide();
+			$(".id").hide();
 		/* Note:
 			return false to prevent the webpage from reloading on click
 		*/
@@ -83,8 +83,8 @@ function refreshHidden(){
 		the .hasClass function checks if ANY of the selected
 		elements has the specified class
 	*/
-	if(!$(".showSize").hasClass("active")){
-		$(".size").hide();
+	if(!$(".showID").hasClass("active")){
+		$(".id").hide();
 	}
 	if(!$(".showType").hasClass("active")){
 		$(".mimetype").hide();
@@ -110,14 +110,14 @@ function sortByFilename(){
 	return false;
 }
 
-function sortBySize(){
+function sortByID(){
 	if(sortedByFilename){
 		sortedByFilename = false;
 		sortedAscendent = true;
 	}else{
 		sortedAscendent = !sortedAscendent;
 	}
-	items = mergeSort(items, sortedAscendent, 'size');
+	items = mergeSort(items, sortedAscendent, 'id');
 	selectPage(1);
 	return false;
 }
@@ -280,8 +280,8 @@ function displayTable(){
 			// insert the thumbnail
 			filelist += '<img src="' + 'http://wme.lehre.imld.de:8080/wme14-15/api/items/' + item_id + '/thumbnail' + '" alt="">';
 		}
-		filelist += items[i].filename + '</td>\n';
-		filelist += '<td class="size">' + formatSize(items[i].metadata.size) + '</td>\n';
+		filelist += '<a href="' + items[i].file_url + '" target="_blank">' +  items[i].filename + '</a></td>\n';
+		filelist += '<td class="id">' + item_id + '</td>\n';
 		filelist += '<td class="mimetype">' + formatType(items[i].metadata.mimetype) + '</td>\n';
 		filelist += '<td class="creation_date">' + formatDate(items[i].metadata.creation_date) + '</td>\n';
 		filelist += '<td class="actions">\n';

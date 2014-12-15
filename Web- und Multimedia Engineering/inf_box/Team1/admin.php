@@ -114,7 +114,7 @@
 					<p>Show/Hide:</p>
 					<ul>
 						<li>
-							<a class="active showSize" href="">Size</a>&nbsp;|&nbsp;
+							<a class="active showID" href="">ID</a>&nbsp;|&nbsp;
 						</li>
 						<li>
 							<a class="active showType" href="">Type</a>&nbsp;|&nbsp;
@@ -146,11 +146,15 @@
 							<a href="" onclick="return sortByFilename();">
 								Filename
 							</a>
+							<i class="fa fa-chevron-down"></i>
+							<i class="fa fa-chevron-up"></i>
 						</th>
-						<th class="size">
-							<a href="" onclick="return sortBySize();">
-								Size
+						<th class="id">
+							<a href="" onclick="return sortByID();">
+								ID
 							</a>
+							<i class="fa fa-chevron-down"></i>
+							<i class="fa fa-chevron-up"></i>
 						</th>
 						<th class="mimetype">Type</th>
 						<th class="creation_date">Creation</th>
@@ -294,9 +298,9 @@
 				<a onclick="return hidePreviews();" href="">
 					<i class="fa fa-close fa-4x"></i>
 				</a><br />
-				<img src="" id="pvw_img">
+				<img src="" id="pvw_img" alt="">
 				<audio controls autoplay id="pvw_aud">
-					<source src="" autoplay id="pvw_aud_src" type="audio/mpeg">
+					<source src="" id="pvw_aud_src" type="audio/mpeg">
 					Your browser does not support the audio element.
 				</audio>
 				<video height="400" controls autoplay id="pvw_vid">
@@ -326,7 +330,7 @@
 					<p>Show/Hide:</p>
 					<ul>
 						<li>
-							<a class="active showSize" href="">Size</a>&nbsp;|&nbsp;
+							<a class="active showID" href="">ID</a>&nbsp;|&nbsp;
 						</li>
 						<li>
 							<a class="active showType" href="">Type</a>&nbsp;|&nbsp;

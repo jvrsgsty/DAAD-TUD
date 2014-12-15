@@ -112,6 +112,8 @@ function compare(x, y, asc, property){
 	var result;
 	if(property=="size"){
 		result = x.metadata.size - y.metadata.size;
+	}else if(property=='id'){
+		result = x.id - y.id;
 	}else{
 		// Default property is filename
 		if(x.filename < y.filename){

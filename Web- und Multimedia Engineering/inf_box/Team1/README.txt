@@ -15,6 +15,7 @@ resources/	: folder with all other resources needed for the webpage (e.i. font a
 
 Workflow:
 The xml transformation is performed when index.php is loadad and the result is saved in resources/result.xml
+	Note: the transformation writes size 10 and thumbnail_available false as default
 Once the user logs in, result.xml is read and parsed to be displayed as a table. 
 To make this step compatible with our previous implementation, the read xml data is parsed into JSON ("item") objects according to the "new" Web Service definition. 
 

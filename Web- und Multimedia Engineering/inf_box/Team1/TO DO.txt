@@ -19,7 +19,7 @@ Uebung 3
 	A: It is possible that the BOM (encoding) from files.xml will cause an error such as:
 		"Content is not allowed in prolog"
 [x] Description of the XLS Transformation for files.xml: transformation.xslt
-	A: Size defaults to 10 because there is no info. Maybe make size optional in schema?
+	A: Size defaults to 10 because there is no info. It is no longer shown (see screenshots from pdf)
 	A: thumbnail_available defaults to false
 [x] Process transformation and save result of the transformation: result.xml
 	A: See http://www.w3schools.com/xsl/xsl_server.asp or http://www.w3schools.com/xsl/xsl_editxml.asp
@@ -32,12 +32,19 @@ Uebung 3
 	J: Done, but generated a problem with div overflow
 [ ] Fix CSS (both in Team1 and home directories): How to format to remove <br /> tag in index.php:41
 [ ] Extra: integration of results window and showing it with AJAX
+[x] Link to path (see 3.4)
+[x] Show ID instead of size (see screenshots from pdf)
+[x] Use icons to indicate sorting feature (see screenshots from pdf)
 
 a) BUGS
 
 b) Not important
 [ ] Use pattern restrictions for username, birthday, email?
 [ ] Use pattern restriction for old creation_date format?
+[x] Update readme with size and thumbnail_available defaults
+[ ] Change file permissions for result.xml (git only tracks executable bit)
+[ ] Maybe remove unused functions from inf_box-Script.js in Team1 folder
+
 
 
 Special Patterns definition:
