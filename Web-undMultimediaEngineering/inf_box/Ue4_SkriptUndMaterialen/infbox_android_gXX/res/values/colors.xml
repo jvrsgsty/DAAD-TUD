@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="light_gray">#ededed</color>
+    <color name="dark_gray">#c8c8c8</color>
+    <color name="inf_green">#9c0</color>
+    <color name="pressed_infbox_ab">#CC99CC00</color>
+    <color name="white">#FFFFFF</color>
+</resources>
