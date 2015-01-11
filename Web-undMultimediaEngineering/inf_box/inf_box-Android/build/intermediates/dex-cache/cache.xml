@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/jvrsgsty/Documents/TUD/git/DAAD-TUD/Web-undMultimediaEngineering/inf_box-Android/infbox_android_gXX/build/intermediates/exploded-aar/inf_box-Android/inf_box_lib/unspecified/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="ff50af94148cf3c9b1b50c21b386430140f8e23a">
+        <dex dex="/Users/jvrsgsty/Documents/TUD/git/DAAD-TUD/Web-undMultimediaEngineering/inf_box-Android/infbox_android_gXX/build/intermediates/pre-dexed/debug/classes-5f2724d595e67ead88a2cf9395422643ccecff6c.jar" />
+    </item>
+    <item
+        jar="/Users/jvrsgsty/Library/Android/sdk/extras/android/m2repository/com/android/support/support-v4/19.1.0/support-v4-19.1.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="85f201b380937e61a9dce6ca90ccf6872abbfb67">
+        <dex dex="/Users/jvrsgsty/Documents/TUD/git/DAAD-TUD/Web-undMultimediaEngineering/inf_box-Android/infbox_android_gXX/build/intermediates/pre-dexed/debug/support-v4-19.1.0-14183fa9c2c5440dcdc0452a461f893897b6fc9d.jar" />
+    </item>
+    <item
+        jar="/Users/jvrsgsty/Documents/TUD/git/DAAD-TUD/Web-undMultimediaEngineering/inf_box-Android/infbox_android_gXX/build/intermediates/exploded-aar/inf_box-Android/inf_box_lib/unspecified/libs/simple-xml-2.7.1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="083623424bcfa03bd598e709765bad0816c2375d">
+        <dex dex="/Users/jvrsgsty/Documents/TUD/git/DAAD-TUD/Web-undMultimediaEngineering/inf_box-Android/infbox_android_gXX/build/intermediates/pre-dexed/debug/simple-xml-2.7.1-779cfad5cfe816410c1d121e34ededa89c1d908a.jar" />
+    </item>
+
+</items>

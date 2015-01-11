@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Generated with http://android-holo-colors.com -->
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <style name="infbox" parent="android:Theme.Holo.Light">
+
+    <item name="android:editTextStyle">@style/EditTextinfbox</item>
+
+    <item name="android:checkboxStyle">@style/CheckBoxinfbox</item>
+
+    <item name="android:radioButtonStyle">@style/RadioButtoninfbox</item>
+
+    <item name="android:buttonStyle">@style/Buttoninfbox</item>
+
+    <item name="android:imageButtonStyle">@style/ImageButtoninfbox</item>
+
+    <item name="android:spinnerStyle">@style/Spinnerinfbox</item>
+
+    <item name="android:dropDownSpinnerStyle">@style/Spinnerinfbox.DropDown</item>
+
+    <item name="android:spinnerDropDownItemStyle">@style/SpinnerDropDownIteminfbox</item>
+
+    <item name="android:progressBarStyleHorizontal">@style/ProgressBarinfbox</item>
+
+    <item name="android:listViewStyle">@style/ListViewinfbox</item>
+
+    <item name="android:listViewWhiteStyle">@style/ListViewinfbox.White</item>
+
+    <item name="android:spinnerItemStyle">@style/SpinnerIteminfbox</item>
+
+  </style>
+
+</resources>

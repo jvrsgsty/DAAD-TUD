@@ -1,0 +1,4 @@
+/Users/jvrsgsty/Documents/TUD/git/DAAD-TUD/Web-undMultimediaEngineering/inf_box-Android/infbox_android_gXX/build/intermediates/classes/debug
+/Users/jvrsgsty/Documents/TUD/git/DAAD-TUD/Web-undMultimediaEngineering/inf_box-Android/infbox_android_gXX/build/intermediates/pre-dexed/debug/classes-5f2724d595e67ead88a2cf9395422643ccecff6c.jar
+/Users/jvrsgsty/Documents/TUD/git/DAAD-TUD/Web-undMultimediaEngineering/inf_box-Android/infbox_android_gXX/build/intermediates/pre-dexed/debug/simple-xml-2.7.1-779cfad5cfe816410c1d121e34ededa89c1d908a.jar
+/Users/jvrsgsty/Documents/TUD/git/DAAD-TUD/Web-undMultimediaEngineering/inf_box-Android/infbox_android_gXX/build/intermediates/pre-dexed/debug/support-v4-19.1.0-14183fa9c2c5440dcdc0452a461f893897b6fc9d.jar
